@@ -1,0 +1,141 @@
+--- round1/investigation-issue.md
++++ investigation-issue.md
+@@ -2,30 +2,57 @@
+ 
+ ## Question and decision
+ 
+-Determine whether mobile expense loss in pocket-0.3.1 occurs during saving, rereading, or display filtering, with enough evidence to choose the fix location.
+-This diagnosis is a research prerequisite for the parent ”Fix expenses occasionally disappearing after saving”.
++Determine which processing stage causes mobile expense loss in pocket-0.3.1, with enough evidence to choose the fix location.
++
++- Type: research.
++- Relation: prerequisite for parent ”Fix expenses occasionally disappearing after saving”.
++- Investigation path
++  - Save.
++  - Reread.
++  - Display filtering.
+ 
+ ## Inputs and deliverables
+ 
+-- Input: requests.md C03 report, successful control, test account, and isolated browser storage.
+-- Output: investigation/expense-disappearance.md.
+-- Reproduction data: fixtures/expense-disappearance/, preserving environment, steps, and observations.
+-- Check evidence gaps after one controlled reproduction attempt; no time limit has been agreed.
++- Input
++  - Requests.md C03 report.
++  - Desktop successful control.
++  - Test account.
++  - Isolated browser storage.
++- Diagnostic output: investigation/expense-disappearance.md.
++- Reproduction data: fixtures/expense-disappearance/.
++  - Environment.
++  - Operation steps.
++  - Observation records.
++- Suggested review point: check evidence gaps after one controlled reproduction attempt.
++- Time limit: not yet agreed.
+ 
+ ## Evidence plan
+ 
+-1. Obtain the exact phone, browser version, date, and complete operation sequence.
+-2. Add the reported TWD 85 Food expense in isolated storage; save data snapshots and screen states before/after saving and after refresh.
+-3. Compare console logs, actual save calls, and date-filtering results; record only relevant network requests.
+-4. Rerun the desktop Chrome successful control with the same inputs.
+-5. Test hypotheses individually; establish causality through repeatable observations or fixed-version code evidence.
+-6. List the fix scope and regression cases from evidence, and update the parent.
++1. Obtain exact phone details.
++2. Obtain the browser version.
++3. Obtain the date at the time.
++4. Obtain the complete operation sequence.
++5. Add the reported TWD 85 Food expense in isolated storage.
++6. Save data snapshots before and after storage.
++7. Refresh and save data snapshots.
++8. Save the corresponding screen state.
++9. Compare console logs.
++10. Trace actual save calls.
++11. Compare date-filtering results.
++12. Record network requests related to the failure.
++13. Rerun the desktop Chrome successful control with the same inputs.
++14. Test hypotheses individually; establish causality through repeatable observations or fixed-version code evidence.
++15. Define the fix scope from evidence.
++16. Define regression cases.
++17. Update the parent with conclusions.
+ 
+ ## Acceptance
+ 
+-- [ ] The successor can reproduce the failure using the environment and data, or equivalent failure observations exist.
+-- [ ] Conclusions have traceable evidence sufficient to define the fix boundary.
+-- [ ] Each adopted reason distinguishes observation from inference; rejection reasons are verifiable.
+-- [ ] The original failure and successful control have been converted into determinable regression cases.
++- [ ] The successor can reproduce the failure or obtain equivalent failure observations.
++- [ ] Conclusions have sufficient evidence to define the fix boundary.
++- [ ] Each adopted reason distinguishes observation from inference.
++- [ ] Reasons for rejected hypotheses are verifiable.
++- [ ] The original failure has been converted into a determinable regression case.
++- [ ] The successful control has been converted into a determinable regression case.
+ 
+ When only hypotheses exist or decision evidence is missing, save progress and continue this investigation.
+--- round1/parent-bug.md
++++ parent-bug.md
+@@ -2,33 +2,49 @@
+ 
+ ## Problem
+ 
+-- Type: Bug; Project: proj-pocket.
++- Type: Bug.
++- Project: proj-pocket.
+ - Promise: the same expense remains visible after adding and refreshing.
+-- User report: occasionally on mobile; one TWD 85 Food expense disappeared ”yesterday” in the report; exact date unknown.
++- Mobile report: expenses occasionally disappear.
++- Reported case: a TWD 85 Food expense disappeared.
++- Reported time: ”yesterday”; exact date unknown.
+ - Version: Pocket web/pocket-0.3.1.
+ - Successful control: desktop Chrome retains a TWD 100 Transport expense after adding and refreshing.
+ - Evidence: requests.md C03.
+ 
+ ## Current gaps
+ 
+-- Device and browser versions unknown.
+-- Complete failure steps, rate, and observation time are unknown.
+-- Console, network, and localStorage snapshots at failure are missing.
+-- iOS storage limitations and date filtering are discussion hypotheses without causal evidence.
++- Exact device unknown.
++- Browser version unknown.
++- Complete failure steps are unknown.
++- Failure rate unknown.
++- Observation time unknown.
++- Console logs at failure are missing.
++- Network logs at failure are missing.
++- The localStorage snapshot at failure is missing.
++- Hypotheses to investigate
++  - iOS storage limitations.
++  - Date-filtering problem.
++- No causal evidence currently supports these hypotheses.
+ 
+ ## Outcomes and order
+ 
+-1. First deliver reproduction and diagnostic evidence in investigation-issue.md.
+-2. Determine the fix location and regression cases from evidence, then draft the fix issue.
+-3. Perform this item’s overall acceptance on the fixed version.
++1. Deliver the diagnostic evidence from [investigation-issue.md](investigation-issue.md).
++2. Determine the fix location from evidence.
++3. Define regression cases.
++4. Draft the fix issue.
++5. Perform overall acceptance on the fixed version.
+ 
+ ## Overall acceptance
+ 
+ - [ ] The identified original failure scenario retains the same expense after the fix.
+-  1. Reproduce using the device, version, and steps from the investigation.
+-  2. Add TWD 85 for Food on the fixed version and refresh.
+-  3. Check that stored and displayed values match; record the tested version and results.
++  1. Restore the affected environment from the investigation results.
++  2. Add TWD 85 for Food using the failure steps.
++  3. Refresh.
++  4. Check that stored and displayed values match.
++  5. Save the tested version and results.
+ - [ ] The desktop Chrome TWD 100 Transport control still passes.
+-- [ ] Regression checks pass for affected paths involved in the root cause, with version evidence.
++- [ ] Regression checks pass for affected paths involved in the root cause.
++- [ ] Regression records identify the tested version.
+ 
+ This item restores the existing persistence promise; the investigation determines the fix.

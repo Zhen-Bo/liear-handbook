@@ -1,0 +1,60 @@
+{
+  "round": 2,
+  "simulationOnly": true,
+  "priorOperations": "round1/operations.json",
+  "findings": [
+    "JSON parsing and both sorting results are combined into one acceptance check.",
+    "Multiple delivered document contents are combined in one completed item.",
+    "First-round hashes used normalized text and differed from actual bytes."
+  ],
+  "operations": [
+    {
+      "operation": "read",
+      "source": [
+        "requests.md#C06",
+        "../outputs/C06",
+        "linear-handbook/references/writing.md"
+      ],
+      "result": "Retain original requirements, reread writing rules, and inspect first-round documents"
+    },
+    {
+      "operation": "save_revision",
+      "target": "C06",
+      "result": "Separated independent information and acceptance results and saved revised Markdown"
+    },
+    {
+      "operation": "preserve_original",
+      "target": "round1/",
+      "result": "Copy first-round data as file bytes for exact comparison"
+    },
+    {
+      "operation": "sync_local_simulation",
+      "target": "workspace.json",
+      "result": "Synchronized and read back"
+    },
+    {
+      "operation": "readback",
+      "target": "readback.json",
+      "result": "Checked documents, simulated bodies, and applicable evidence; revision.diff preserves line-by-line differences"
+    },
+    {
+      "operation": "followup_text_correction",
+      "targets": [
+        "PAY-16.md",
+        "docs/export-spec.md"
+      ],
+      "result": "Revised the specified text, removed unnecessary statements, and read back; differences saved in followup-revision.diff"
+    },
+    {
+      "operation": "sync_hash_and_body",
+      "targets": [
+        "verification.json",
+        "PAY-16.md",
+        "workspace.json",
+        "readback.json"
+      ],
+      "result": "Recomputed from actual bytes and synchronized",
+      "sha256": "bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c"
+    }
+  ]
+}

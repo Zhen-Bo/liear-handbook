@@ -1,0 +1,33 @@
+{
+  "issues": {
+    "SIM-101": {
+      "id": "SIM-101",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Organize the API contract.",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z"
+    }
+  },
+  "comments": [
+    {
+      "id": "decision-1",
+      "body": "The coordinator has not yet designated the shared writer; preserve both A and B drafts."
+    }
+  ],
+  "decisions": [
+    {
+      "issueId": "SIM-101",
+      "decision": "Stop shared writes to shared/api.md and preserve the existing A and B drafts in their separate locations; a successful claim does not provide an exclusive lock.",
+      "evidence": [
+        "claim-A",
+        "claim-B",
+        "decision-1"
+      ],
+      "nextAction": "Have the coordinator confirm the sole writer and that the other party has stopped writing; obtain the current API contract and both drafts before integrating.",
+      "draft": "claim-agent-A.md",
+      "state": "In Progress"
+    }
+  ]
+}

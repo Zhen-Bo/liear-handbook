@@ -1,0 +1,62 @@
+{
+  "round": 2,
+  "simulationOnly": true,
+  "priorOperations": "round1/operations.json",
+  "findings": [
+    "5000  and 5001-record results are combined into one acceptance check.",
+    "Special-character, sorting, and permission results are combined into one acceptance check.",
+    "Limit guidance and absence of a file are combined into one acceptance check.",
+    "Frontend/backend delivery scopes and capacity rules contain multiple information units."
+  ],
+  "operations": [
+    {
+      "operation": "read",
+      "source": [
+        "requests.md#C04",
+        "../outputs/C04",
+        "linear-handbook/references/writing.md"
+      ],
+      "result": "Retain original requirements, reread writing rules, and inspect first-round documents"
+    },
+    {
+      "operation": "save_revision",
+      "target": "C04",
+      "result": "Separated independent information and acceptance results and saved revised Markdown"
+    },
+    {
+      "operation": "preserve_original",
+      "target": "round1/",
+      "result": "Copy first-round data as file bytes for exact comparison"
+    },
+    {
+      "operation": "save_drafts",
+      "target": "Markdown for this case",
+      "result": "Saved and read back drafts"
+    },
+    {
+      "operation": "readback",
+      "target": "readback.json",
+      "result": "Checked documents, simulated bodies, and applicable evidence; revision.diff preserves line-by-line differences"
+    },
+    {
+      "operation": "followup_text_correction",
+      "targets": [
+        "plan.md",
+        "parent-feature.md",
+        "backend.md",
+        "integration.md"
+      ],
+      "result": "Revised the specified text, removed unnecessary statements, and read back; differences saved in followup-revision.diff"
+    },
+    {
+      "operation": "clarify_set_equality",
+      "targets": [
+        "parent-feature.md",
+        "backend.md",
+        "integration.md"
+      ],
+      "result": "Only the first checkbox was changed to set equality to exclude missing and extra data; readback completed and hashes synchronized",
+      "diff": "set-equality-revision.diff"
+    }
+  ]
+}

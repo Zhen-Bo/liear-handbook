@@ -1,0 +1,21 @@
+{
+  "issues": {
+    "SIM-102": {
+      "id": "SIM-102",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "## Goal\n\nDeliver JSON export.\n\n## Acceptance\n\n- [ ] Return a records array.\n- [ ] Preserve the version field.\n\n## Notes\n\n- Used for data backup.\n- Preserve the existing download entry point.\n\n## Deliverables\n\n1. [JSON export example](artifacts/export.json).\n\n## Verification results\n\n- [x] User-provided test result: JSON returns a records array.\n- [x] User-provided test result: JSON preserves the version field.",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T02:00:00Z"
+    }
+  },
+  "decisions": [
+    {
+      "issueId": "SIM-102",
+      "result": "Confirmed success",
+      "evidence": "Appended the artifacts/export.json deliverable link and user test results to the latest complete JSON replacement body; readback preserved the original acceptance and notes lists.",
+      "state": "In Progress"
+    }
+  ]
+}

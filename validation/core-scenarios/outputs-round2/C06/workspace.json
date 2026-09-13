@@ -1,0 +1,35 @@
+{
+  "issue": {
+    "id": "pay-16",
+    "identifier": "PAY-16",
+    "statusId": "pay-done",
+    "assigneeId": "user-ren",
+    "parent": "PAY-11",
+    "body": "Deliver the JSON export specification.\n\n- Fields\n  - date.\n  - amount.\n  - category.\n- Amount is an integer.\n- Sort data by date ascending.\n- Sort by id ascending within a date.\n- Artifact: [docs/export-spec.md](docs/export-spec.md).\n- Prerequisite source: PAY-15/fixture://pay-15/data-contract-v2.\n- For PAY-11’s JSON export implementation.\n\n## Completed items\n\n1. Completely replace with a JSON specification.\n2. Define the three output fields.\n3. Add a cross-date sorting example.\n4. Add a same-date id sorting example.\n5. Specify empty-array output.\n\n## Verification results\n\n- [x] The date definition matches data-contract-v2.\n- [x] The amount definition matches the integer contract.\n- [x] The category definition matches the string contract.\n- [x] Sorting example JSON parses successfully.\n- [x] The example sorts date ascending.\n- [x] The example sorts id ascending within the same date.\n- [x] Empty-data output is explicitly [].\n\n- Evidence: [verification.json](verification.json).\n- Historical tested document SHA-256: bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c\n- Hash baseline: actual saved file bytes.\n- Local simulated artifact links are relative to this directory.\n\n## Continuation entry point\n\n1. The PAY-11 implementation successor reads docs/export-spec.md.\n2. Implement output according to field definitions.\n3. Check results against the sorting example.\n\n- English document SHA-256: 890e9f3d03162c5dd7716e0d8959b0f039bac0f23aedefcecd239c99d0bbf325\n"
+  },
+  "parent": {
+    "identifier": "PAY-11",
+    "body": "Deliver JSON export; the specification is an implementation prerequisite."
+  },
+  "allocation": {
+    "writer": "session B",
+    "scope": [
+      "PAY-16",
+      "docs/export-spec.md"
+    ],
+    "sessionAStopped": true,
+    "updatedAt": "2026-09-13T10:00:00+08:00"
+  },
+  "prerequisite": {
+    "identifier": "PAY-15",
+    "status": "Done",
+    "artifact": "fixture://pay-15/data-contract-v2",
+    "content": {
+      "date": "YYYY-MM-DD",
+      "amount": "Integer",
+      "category": "String",
+      "id": "Unique string"
+    }
+  },
+  "parentAutomation": false
+}

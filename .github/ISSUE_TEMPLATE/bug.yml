@@ -1,0 +1,51 @@
+name: Bug report
+description: Report incorrect documentation, installation problems, or unexpected Agent behavior.
+body:
+  - type: markdown
+    attributes:
+      value: Remove private Workspace data, credentials, and sensitive information before sharing.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the original request and the document or operation affected.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Describe the correct content or behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include relevant excerpts, Agent output, or error messages.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: For behavior or installation issues, list the steps in order.
+      placeholder: |
+        1. Request or command used
+        2. Action taken
+        3. Observed result
+  - type: input
+    id: version
+    attributes:
+      label: Skill version
+      description: Release, commit, or date obtained.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include the relevant operating system, Agent, model, tools, and versions.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Official sources, screenshots, or a minimal reproduction.

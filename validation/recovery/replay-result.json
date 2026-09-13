@@ -1,0 +1,183 @@
+{
+  "requests": 30,
+  "responsesMatch": true,
+  "statesMatch": true,
+  "steps": [
+    {
+      "step": 1,
+      "case": "claim",
+      "responseMatches": true
+    },
+    {
+      "step": 2,
+      "case": "claim",
+      "responseMatches": true
+    },
+    {
+      "step": 3,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 4,
+      "case": "timeout",
+      "responseMatches": true
+    },
+    {
+      "step": 5,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 6,
+      "case": "permission",
+      "responseMatches": true
+    },
+    {
+      "step": 7,
+      "case": "untrusted",
+      "responseMatches": true
+    },
+    {
+      "step": 8,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 9,
+      "case": "timeout",
+      "responseMatches": true
+    },
+    {
+      "step": 10,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 11,
+      "case": "permission",
+      "responseMatches": true
+    },
+    {
+      "step": 12,
+      "case": "untrusted",
+      "responseMatches": true
+    },
+    {
+      "step": 13,
+      "case": "claim",
+      "responseMatches": true
+    },
+    {
+      "step": 14,
+      "case": "timeout",
+      "responseMatches": true
+    },
+    {
+      "step": 15,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 16,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 17,
+      "case": "untrusted",
+      "responseMatches": true
+    },
+    {
+      "step": 18,
+      "case": "permission",
+      "responseMatches": true
+    },
+    {
+      "step": 19,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 20,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 21,
+      "case": "timeout",
+      "responseMatches": true
+    },
+    {
+      "step": 22,
+      "case": "untrusted",
+      "responseMatches": true
+    },
+    {
+      "step": 23,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 24,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 25,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 26,
+      "case": "untrusted",
+      "responseMatches": true
+    },
+    {
+      "step": 27,
+      "case": "timeout",
+      "responseMatches": true
+    },
+    {
+      "step": 28,
+      "case": "partial",
+      "responseMatches": true
+    },
+    {
+      "step": 29,
+      "case": "human",
+      "responseMatches": true
+    },
+    {
+      "step": 30,
+      "case": "untrusted",
+      "responseMatches": true
+    }
+  ],
+  "states": [
+    {
+      "file": "claim-state.json",
+      "matches": true
+    },
+    {
+      "file": "human-state.json",
+      "matches": true
+    },
+    {
+      "file": "partial-state.json",
+      "matches": true
+    },
+    {
+      "file": "permission-state.json",
+      "matches": true
+    },
+    {
+      "file": "timeout-state.json",
+      "matches": true
+    },
+    {
+      "file": "untrusted-state.json",
+      "matches": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "issue": {
+    "id": "pay-16",
+    "identifier": "PAY-16",
+    "statusId": "pay-done",
+    "assigneeId": "user-ren",
+    "parent": "PAY-11",
+    "body": "Deliver the JSON export specification.\n\n- Fields: date, amount, category.\n- Amount is an integer.\n- Sort data by date ascending, then id ascending within a date.\n- Artifact: [docs/export-spec.md](docs/export-spec.md).\n- Prerequisite source: PAY-15/fixture://pay-15/data-contract-v2.\n- For PAY-11’s JSON export implementation.\n\n## Completed items\n\n1. Completely replace with a JSON specification defining three fields and the source contract.\n2. Add cross-date and same-date id sorting examples and empty-array output.\n\n## Verification results\n\n- [x] Field definitions match current requirements and data-contract-v2.\n- [x] Sorting example JSON parses; output follows ascending date, then ascending id within a date.\n- [x] Empty-data output is explicitly [].\n\n- Evidence: [verification.json](verification.json).\n- Historical tested document SHA-256: ada68fc371e2730745efe4f554768328a4e41b6e264b95a25d5460a12e788c45\n- Local simulated artifact links are relative to this directory.\n\n## Continuation entry point\n\nThe PAY-11 implementation successor reads the fields and sorting examples in docs/export-spec.md first, then implements JSON export accordingly.\n\n- English document SHA-256: 46064f9704f08f6b41f8396b7128cf507263dcbd917ac37686da8509e445477a\n"
+  },
+  "parent": {
+    "identifier": "PAY-11",
+    "body": "Deliver JSON export; the specification is an implementation prerequisite."
+  },
+  "allocation": {
+    "writer": "session B",
+    "scope": [
+      "PAY-16",
+      "docs/export-spec.md"
+    ],
+    "sessionAStopped": true,
+    "updatedAt": "2026-09-13T10:00:00+08:00"
+  },
+  "prerequisite": {
+    "identifier": "PAY-15",
+    "status": "Done",
+    "artifact": "fixture://pay-15/data-contract-v2",
+    "content": {
+      "date": "YYYY-MM-DD",
+      "amount": "Integer",
+      "category": "String",
+      "id": "Unique string"
+    }
+  },
+  "parentAutomation": false
+}

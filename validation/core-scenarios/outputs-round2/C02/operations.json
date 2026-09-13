@@ -1,0 +1,48 @@
+{
+  "round": 2,
+  "simulationOnly": true,
+  "priorOperations": "round1/operations.json",
+  "findings": [
+    "Environment mappings, access, and execution choices contain several independent information units.",
+    "Invalid ISO and missing-time-zone handling are combined into one acceptance check."
+  ],
+  "operations": [
+    {
+      "operation": "read",
+      "source": [
+        "requests.md#C02",
+        "../outputs/C02",
+        "linear-handbook/references/writing.md"
+      ],
+      "result": "Retain original requirements, reread writing rules, and inspect first-round documents"
+    },
+    {
+      "operation": "save_revision",
+      "target": "C02",
+      "result": "Separated independent information and acceptance results and saved revised Markdown"
+    },
+    {
+      "operation": "preserve_original",
+      "target": "round1/",
+      "result": "Copy first-round data as file bytes for exact comparison"
+    },
+    {
+      "operation": "save_drafts",
+      "target": "Markdown for this case",
+      "result": "Saved and read back drafts"
+    },
+    {
+      "operation": "readback",
+      "target": "readback.json",
+      "result": "Checked documents, simulated bodies, and applicable evidence; revision.diff preserves line-by-line differences"
+    },
+    {
+      "operation": "followup_text_correction",
+      "targets": [
+        "environment.md",
+        "FIN-10.md"
+      ],
+      "result": "Revised the specified text, removed unnecessary statements, and read back; differences saved in followup-revision.diff"
+    }
+  ]
+}

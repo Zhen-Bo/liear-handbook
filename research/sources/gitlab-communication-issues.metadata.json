@@ -1,0 +1,89 @@
+{
+  "source_url": "https://handbook.gitlab.com/handbook/communication/#issues",
+  "retrieved_at": "2026-09-12T14:28:14.383785+00:00",
+  "start_heading": "Issues",
+  "end_before_heading": "How to make a company wide announcement",
+  "extraction": "Original HTML subtree from Issues heading to next same-or-higher-level heading; text companion derived without summarization.",
+  "html_sha256": "12322d935dd1e177b69ee9c247a7981c9761b3b1142860a387775dced8ea42cc",
+  "top_level_elements": [
+    "h3",
+    "p",
+    "ul",
+    "p",
+    "p",
+    "ol",
+    "p",
+    "ol"
+  ],
+  "list_items": 25,
+  "links": [
+    {
+      "text": "",
+      "href": "#issues"
+    },
+    {
+      "text": "here",
+      "href": "https://gitlab.com/gitlab-com/people-group/peopleops-eng/employment-automation/-/merge_requests/60"
+    },
+    {
+      "text": "Automatic issue closing",
+      "href": "https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#disable-automatic-issue-closing"
+    },
+    {
+      "text": "low-context communication",
+      "href": "https://handbook.gitlab.com/handbook/communication/#low-context"
+    },
+    {
+      "text": "Link to specific lines of code",
+      "href": "https://docs.gitlab.com/ee/development/documentation/styleguide/#link-to-specific-lines-of-code"
+    },
+    {
+      "text": "milestone",
+      "href": "https://gitlab.com/groups/gitlab-org/-/milestones"
+    },
+    {
+      "text": "we work out in the open",
+      "href": "https://about.gitlab.com/blog/2015/08/03/almost-everything-we-do-is-now-open/"
+    },
+    {
+      "text": "the gitlab-com group",
+      "href": "https://gitlab.com/gitlab-com/"
+    },
+    {
+      "text": "done",
+      "href": "https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html#definition-of-done"
+    },
+    {
+      "text": "done",
+      "href": "https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html#definition-of-done"
+    },
+    {
+      "text": "non-public information",
+      "href": "https://handbook.gitlab.com/handbook/communication/confidentiality-levels/#not-public"
+    },
+    {
+      "text": "accessible to all members of the project with Reporter access and above",
+      "href": "https://docs.gitlab.com/ee/user/project/issues/confidential_issues.html#permissions-and-access-to-confidential-issues"
+    },
+    {
+      "text": "non-public information",
+      "href": "https://handbook.gitlab.com/handbook/communication/confidentiality-levels/#not-public"
+    },
+    {
+      "text": "code of conduct",
+      "href": "https://about.gitlab.com/community/contribute/code-of-conduct/"
+    },
+    {
+      "text": "undergo moderation",
+      "href": "https://handbook.gitlab.com/handbook/marketing/developer-relations/workflows-tools/code-of-conduct-enforcement/#overview"
+    }
+  ],
+  "license_links": [
+    {
+      "text": "",
+      "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ],
+  "hash_normalization": "UTF-8 with LF line endings",
+  "file_sha256": "9fd94e140fd2d6b99c6f047e48f5e3827bca8e780ff057d5fb5add2ee5abff40"
+}

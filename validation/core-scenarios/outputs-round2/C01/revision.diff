@@ -1,0 +1,336 @@
+--- round1/environment.md
++++ environment.md
+@@ -1,20 +1,45 @@
+ # Pocket minimum environment
+ 
+-Verification baseline: requests.md C01, 2026-09-13.
++Verification baseline: requests.md C01.
++Verified on: 2026-09-13.
+ 
+-- Workspace: Pocket/ws-pocket/Free.
+-- Team: Pocket/team-pocket/PKT/Asia/Taipei; reuse the native default Team.
++- Workspace
++  - Name: Pocket.
++  - ID: ws-pocket.
++  - Plan: Free.
++- Team
++  - Reuse the native default Team.
++  - Name: Pocket.
++  - ID: team-pocket.
++  - Identifier: PKT.
++  - Time zone: Asia/Taipei.
+ - Human outcome owner: Owner/user-owner.
+-- Executors: external sessions A and B share the Owner connection and can access Pocket.
+-  - Record the session and write scope in the issue body.
++- External executors
++  - Session A.
++  - Session B.
++  - Connection: shared Owner connection.
++  - Access: both can access Pocket.
++- Allocation record
++  - Issue body records the actual session.
++  - Issue body records the exclusive write scope.
+   - Use user-owner as Assignee.
+-- Notifications: Owner checks Inbox daily and subscribes to owned issues; actual new-issue subscription fields were not provided.
+-- Priority: No priority for this round; order work by prerequisite artifacts.
++- Notifications
++  - Owner checks Inbox daily.
++  - Owner subscribes to issues they own.
++  - Actual subscription fields for new issues were not provided.
++- Priority: No priority for this round.
++- Execution order: arrange by prerequisite artifacts.
+ - Labels: empty.
+ - Estimates: keep off.
+ - Cycles: keep off.
+-- Automations: PR, parent/sub-issue, auto-close, and auto-archive are all off.
+-- Project and issue searches: all results empty.
++- Automations
++  - PR: off.
++  - Parent/sub-issue: off.
++  - Auto-close: off.
++  - Auto-archive: off.
++- All search results
++  - Projects: empty.
++  - Issues: empty.
+ 
+ | Stage | Name | Category | ID |
+ | --- | --- | --- | --- |
+@@ -25,6 +50,14 @@
+ | Stopped | Canceled | canceled | st-canceled |
+ 
+ - Default status: st-backlog.
+-- This round uses existing Project/issue creation capabilities and retains the environment above.
+-- Suggested capacity: one item per Agent at a time; Owner coordinates shared entry points and overall acceptance.
+-- Working baseline: pocket-web, fixture-base-01, Vite + TypeScript, Vitest.
++- Creation capability: this round may create a Project and issues.
++- Settings: retain the state above.
++- Suggested capacity: one item per Agent at a time.
++- Coordinator: Owner.
++  - Arrange writes to the shared entry point.
++  - Check overall acceptance.
++- Working baseline
++  - Repository: pocket-web.
++  - Version: fixture-base-01.
++  - Technology: Vite + TypeScript.
++  - Test tool: Vitest.
+--- round1/PKT-1.md
++++ PKT-1.md
+@@ -6,21 +6,48 @@
+ 
+ ## Inputs and scope
+ 
+-- Input: Project brief, pocket-web/fixture-base-01.
+-- Exclusive write scope: src/expenses/, corresponding Vitest checks, docs/expense-contract.md.
+-- Define expense identity, amount, category, creation time, storage key/version, and error results.
+-- Deliver add, reload, and monthly-total functions with complete call examples.
+-- Use an injectable clock; determine the current month from the browser’s local year and month.
++- Input
++  - [Project brief](project-brief.md).
++  - Pocket-web/fixture-base-01.
++- Exclusive write scope
++  - src/expenses/.
++  - Corresponding Vitest checks.
++  - docs/expense-contract.md.
++- Data contract
++  - Expense identity.
++  - Amount.
++  - Category.
++  - Creation time.
++  - Storage key.
++  - Data version.
++  - Error results.
++- Function deliverables
++  - Add an expense.
++  - Reread.
++  - Current monthly total.
++- Documentation deliverable: complete call examples.
++- Clock: injectable.
++- Month determination: browser local year and month.
+ 
+ ## Acceptance
+ 
+-- [ ] 85  TWD for Food and TWD 100 for Transport can be saved and reread with matching amounts and categories.
+-- [ ] Nonpositive or noninteger amounts are not written; write failures return an error the interface can display.
+-- [ ] Monthly total is 185; previous-month data excluded; empty data is 0.
+-- [ ] The contract includes inputs, outputs, errors, and call examples that B can integrate directly.
+-- [ ] Relevant Vitest checks pass; save the version and execution results.
++- [ ] After saving and rereading, TWD 85 Food and TWD 100 Transport match their original values.
++- [ ] Nonpositive or noninteger amounts are not written.
++- [ ] Write failures return an error the interface can display.
++- [ ] TWD 85 and TWD 100 in the same month total TWD 185.
++- [ ] Previous-month data is excluded from the current monthly total.
++- [ ] Empty data has a monthly total of 0.
++- [ ] The contract is sufficient for B to integrate using the call examples.
++  1. Read the contract’s input and output definitions.
++  2. Call data functions using the success example.
++  3. Check error outcomes against error examples.
++- [ ] Relevant Vitest checks pass.
++- [ ] Verification records identify the tested version.
+ 
+ ## Next steps
+ 
+-1. Read the empty Vite repository and existing test configuration.
+-2. Define the complete contract and finish the data functions and verification.
++1. Read the empty Vite repository.
++2. Check the existing test configuration.
++3. Define the complete contract.
++4. Complete the data functions.
++5. Run verification and save the record.
+--- round1/PKT-2.md
++++ PKT-2.md
+@@ -6,20 +6,35 @@
+ 
+ ## Inputs and scope
+ 
+-- Required inputs: PKT-1’s docs/expense-contract.md and callable data functions; check versions at completion.
+-- Exclusive write scope: src/ui/expenses/ and corresponding interface checks.
+-- Amount field, Food/Transport/Other category choices, save action, and monthly total.
+-- Verify the interface with a contract-compatible adapter; PKT-3 maintains the integration entry point.
++- Required inputs
++  - PKT-1’s docs/expense-contract.md.
++  - PKT-1’s callable data functions.
++- Exclusive write scope
++  - src/ui/expenses/.
++  - Corresponding interface checks.
++- Interface contents
++  - Amount field.
++  - Category choices: Food/Transport/Other.
++  - Save action.
++  - Current monthly total.
++- Interface verification: use a contract-compatible adapter.
++- Integration entry-point maintainer: PKT-3.
+ 
+ ## Acceptance
+ 
+ - [ ] Successful addition displays the latest monthly total.
+-- [ ] Invalid amounts receive understandable, actionable guidance and do not submit an addition.
+-- [ ] Display an error on save failure and allow retrying after correction.
+-- [ ] Empty data displays 0; keyboard operation supports fields and saving.
+-- [ ] Save interface verification results and the export entry point for integration.
++- [ ] Invalid amounts display corrective guidance.
++- [ ] Invalid amounts do not submit an addition.
++- [ ] Display an error on save failure.
++- [ ] Allow retrying after a save failure.
++- [ ] Empty data displays a total of 0.
++- [ ] Keyboard operation can complete the add flow.
++- [ ] Interface verification results are saved.
++- [ ] The integration successor can locate the interface export entry point.
+ 
+ ## Next steps
+ 
+-1. Confirm PKT-1 artifacts are readable and match the calling contract.
+-2. Build the interface and check behavior against success, empty-data, and failure responses.
++1. Confirm the PKT-1 artifact version.
++2. Check the calling contract.
++3. Build the interface.
++4. Check behavior against each acceptance criterion.
+--- round1/PKT-3.md
++++ PKT-3.md
+@@ -6,19 +6,41 @@
+ 
+ ## Inputs and scope
+ 
+-- Input: usable versions of PKT-1 data functions and the PKT-2 interface.
+-- Exclusive write scope: actual Vite startup entry point, required integration changes, verification/pocket-v1.md.
+-- Connect real localStorage and the interface, fixing integration gaps.
+-- Complete browser operations and data comparison against the Project brief’s success criteria.
++- Required inputs
++  - Usable version of PKT-1 data functions.
++  - Usable version of the PKT-2 interface.
++- Exclusive write scope
++  - Actual Vite startup entry point.
++  - Required integration changes.
++  - verification/pocket-v1.md.
++- Connect real localStorage.
++- Connect the expense interface.
++- Fix gaps caused by integration.
++- Perform browser acceptance against the Project brief.
+ 
+ ## Acceptance
+ 
+-- [ ] Add TWD 85 Food and TWD 100 Transport in the actual browser; after refresh both remain and the total is 185.
+-- [ ] Previous-month exclusion, empty data, invalid amounts, and storage failure match the Project brief.
+-- [ ] Record the tested version, browser, isolated data, and individual results.
+-- [ ] Owner can assess the overall Project outcome from the evidence entry point.
++- [ ] After adding TWD 85 for Food and TWD 100 for Transport in the browser, the monthly total is TWD 185.
++- [ ] After refresh, both expenses match the added content.
++- [ ] After refresh, the monthly total is still TWD 185.
++- [ ] Previous-month expenses are excluded from the current monthly total.
++- [ ] Empty data totals 0.
++- [ ] Amount 0 does not add an expense.
++- [ ] Negative amounts do not add an expense.
++- [ ] Fractional amounts do not add an expense.
++- [ ] Blank amounts do not add an expense.
++- [ ] Invalid amounts display corrective guidance.
++- [ ] Display the failure result on storage failure.
++- [ ] Do not report a successful addition when storage fails.
++- [ ] Acceptance records identify the tested version.
++- [ ] Acceptance records identify the browser.
++- [ ] Acceptance records identify isolated data.
++- [ ] Owner can locate each acceptance result from the record.
+ 
+ ## Next steps
+ 
+-1. Read both artifacts and check versions and interfaces.
+-2. After connecting the startup entry point, execute the full flow and save acceptance records.
++1. Read both artifacts.
++2. Check version and interface-contract compatibility.
++3. Connect the startup entry point.
++4. Perform the browser acceptance above.
++5. Save individual results.
+--- round1/project-brief.md
++++ project-brief.md
+@@ -2,35 +2,73 @@
+ 
+ ## Goal
+ 
+-Allow individuals to add expense amounts and categories, view this month’s total, and retain data after refresh.
++Allow individuals to add expense amounts and categories.
++Users can view the monthly total and find saved expenses after refreshing.
+ Requirement basis: requests.md C01.
+ 
+ ## Adopted scope
+ 
+-- Persist expenses in localStorage within one browser.
+-- Amounts are positive integer TWD.
+-- Categories: Food, Transport, Other.
+-- Version 1 provides expense addition and the monthly total.
+-- Working baseline: pocket-web/fixture-base-01, Vite + TypeScript, Vitest.
+-- Engineering conventions for this round: record time when adding; determine the current month from browser local year/month; inject the clock to verify cross-month behavior. These are adjustable implementation choices.
++- Storage: localStorage in one browser.
++- Amount: positive integer TWD.
++- Category
++  - Food.
++  - Transport.
++  - Other.
++- Version 1 capabilities
++  - Add an expense.
++  - View the current monthly total.
++- Working baseline
++  - Repository: pocket-web.
++  - Version: fixture-base-01.
++  - Technology: Vite + TypeScript.
++  - Test tool: Vitest.
++- Engineering conventions for this round, adjustable during implementation
++  - Record the time when adding.
++  - Determine the current month from the browser’s local year and month.
++  - Inject the clock to verify cross-month behavior.
+ 
+ ## Success criteria
+ 
+ - [ ] After adding TWD 85 Food and TWD 100 Transport, the monthly total is TWD 185.
+-  1. Use isolated localStorage and a fixed current-month clock.
+-  2. Add two expenses through the interface.
+-  3. Check categories and amounts, then refresh.
+-  4. Confirm both records remain and the total is still TWD 185.
+-- [ ] 0, negative, fractional, and blank amounts do not add an expense; the interface displays corrective guidance.
+-- [ ] Previous-month expenses are excluded; empty data produces a monthly total of 0.
+-- [ ] Display the failure result when storage fails; do not report a successful addition.
++  1. Use isolated localStorage.
++  2. Fix the clock in the current month.
++  3. Add the two expenses above through the interface.
++  4. Check the displayed total is TWD 185.
++- [ ] After refresh, both expense amounts and categories match the added content.
++  1. Add TWD 85 Food and TWD 100 Transport through the interface.
++  2. Refresh.
++  3. Compare saved contents record by record.
++- [ ] After refresh, the monthly total is still TWD 185.
++- [ ] An amount of 0 does not add an expense.
++- [ ] A negative amount does not add an expense.
++- [ ] A fractional amount does not add an expense.
++- [ ] A blank amount does not add an expense.
++- [ ] Invalid amounts display corrective guidance.
++- [ ] Exclude previous-month expenses from the current monthly total.
++- [ ] Empty data has a monthly total of 0.
++- [ ] Display the failure result when storage fails.
++- [ ] Do not report a successful addition when storage fails.
+ 
+ ## Responsibilities and entry points
+ 
+-- Project lead, requirement decisions, and outcome acceptance: Owner/user-owner.
+-- Simulated Project: sim-pocket-v1, Team team-pocket.
++- Project lead: Owner/user-owner.
++- Requirement decision-maker: Owner/user-owner.
++- Outcome reviewer: Owner/user-owner.
++- Simulated Project: sim-pocket-v1.
++- Team: team-pocket.
+ - Initial work
+-  - PKT-1: data contract, localStorage persistence, and monthly total; session A.
+-  - PKT-2: expense entry and monthly total interface; session B, waiting for a usable PKT-1 contract.
+-  - PKT-3: connect the real persistence flow and perform acceptance; session A, waiting for PKT-1 and PKT-2 artifacts.
+-- Next step: A checks the repository state for PKT-1, delivers a readable data contract and verified data functions.
++  - [PKT-1](PKT-1.md): data functions.
++    - Executor: session A.
++  - [PKT-2](PKT-2.md): expense interface.
++    - Executor: session B.
++    - Prerequisite: usable PKT-1 contract and data functions.
++  - [PKT-3](PKT-3.md): workflow integration.
++    - Executor: session A.
++    - Prerequisite: PKT-1 artifact.
++    - Prerequisite: PKT-2 artifact.
++
++## Next steps
++
++1. A checks the repository state for PKT-1.
++2. Deliver the data contract.
++3. Complete the data functions and their verification.

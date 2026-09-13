@@ -1,0 +1,31 @@
+--- before/C02/environment.md
++++ after/C02/environment.md
+@@ -29,18 +29,15 @@
+ - Default: fin-queue.
+ - Estimates
+   - Retain Fibonacci 1/2/3/5/8.
+-  - Original values for each issue were not provided.
+ - Cycles
+   - Period: two weeks.
+   - Current: cycle-24.
+-  - FIN-10 Cycle membership is unknown.
+ - Priority
+   - Blocked expense entry: High.
+   - Others: follow the existing order.
+ - Labels
+   - Team Bug: label-fin-bug/team-finance.
+   - Workspace Bug: label-workspace-bug/workspace.
+-  - No documentation label was provided for FIN-10.
+ - Automation
+   - PR merged → Checking.
+   - Parent/sub-issue auto-close: off.
+--- before/C02/FIN-10.md
++++ after/C02/FIN-10.md
+@@ -53,6 +53,6 @@
+ 3. Inspect the user time-zone contract.
+ 4. Document accepted ISO forms.
+ 5. Add cross-month cases.
+-6. Hand the completed document to monthly-report integration.
++6. Hand the completed document to monthly-report integration.
+ 
+ Schedule FIN-8 once the FIN-9 artifact is usable.

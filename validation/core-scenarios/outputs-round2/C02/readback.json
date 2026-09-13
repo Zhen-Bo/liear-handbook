@@ -1,0 +1,32 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "environment.md",
+      "sha256": "f32b25e2075ae2823cff9632d218626d02894bfc4e024e7a405d5736544350b1",
+      "changed": true,
+      "checkboxCount": 0,
+      "localizedSha256": "212de0575e2d13ec300b1994a219c9950d470b35e4d2b540a6e6d8dd1b5defd0"
+    },
+    {
+      "file": "FIN-10.md",
+      "sha256": "db0211f850188448fa625f6ed10f371ae1f04800a3513f67d6cba336af348293",
+      "changed": true,
+      "checkboxCount": 7,
+      "localizedSha256": "02b2be8bd120d33883b76aecf3ebe5860c442c021bfb8644305414d6b11ecdb1"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "followupChecks": [
+    {
+      "name": "Specified documents revised and reread",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

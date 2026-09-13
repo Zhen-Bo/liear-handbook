@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "name": "fixed_input_unchanged",
+      "passed": true
+    },
+    {
+      "name": "expected_unchanged",
+      "passed": true
+    },
+    {
+      "name": "skill_matches_tested_manifest",
+      "passed": true
+    },
+    {
+      "name": "C01_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C01_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C02_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C02_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C03_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C03_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C04_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C04_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C05_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C05_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C06_routes_resolve",
+      "passed": true
+    },
+    {
+      "name": "C06_operations_preserved",
+      "passed": true
+    },
+    {
+      "name": "C01_existing_team_and_human_assignee",
+      "passed": true
+    },
+    {
+      "name": "C05_reopened_for_repair",
+      "passed": true
+    },
+    {
+      "name": "C06_example_sort_and_projection",
+      "passed": true
+    },
+    {
+      "name": "C06_verified_document_hash",
+      "passed": true
+    },
+    {
+      "name": "C06_body_model_and_file_version",
+      "passed": true
+    }
+  ],
+  "json_files_parsed": 46,
+  "passed": true
+}

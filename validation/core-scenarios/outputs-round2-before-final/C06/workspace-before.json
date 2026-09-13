@@ -1,0 +1,35 @@
+{
+  "issue": {
+    "id": "pay-16",
+    "identifier": "PAY-16",
+    "statusId": "pay-doing",
+    "assigneeId": "user-ren",
+    "parent": "PAY-11",
+    "body": "Deliver the JSON export specification; fields date, amount, category; integer amounts; ascending date, then ascending id within a date; artifact docs/export-spec.md; acceptance covers field definitions, sorting examples, and empty output []."
+  },
+  "parent": {
+    "identifier": "PAY-11",
+    "body": "Deliver JSON export; the specification is an implementation prerequisite."
+  },
+  "allocation": {
+    "writer": "session B",
+    "scope": [
+      "PAY-16",
+      "docs/export-spec.md"
+    ],
+    "sessionAStopped": true,
+    "updatedAt": "2026-09-13T10:00:00+08:00"
+  },
+  "prerequisite": {
+    "identifier": "PAY-15",
+    "status": "Done",
+    "artifact": "fixture://pay-15/data-contract-v2",
+    "content": {
+      "date": "YYYY-MM-DD",
+      "amount": "Integer",
+      "category": "String",
+      "id": "Unique string"
+    }
+  },
+  "parentAutomation": false
+}

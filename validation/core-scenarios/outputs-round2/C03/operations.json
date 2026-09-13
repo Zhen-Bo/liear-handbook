@@ -1,0 +1,41 @@
+{
+  "round": 2,
+  "simulationOnly": true,
+  "priorOperations": "round1/operations.json",
+  "findings": [
+    "Product type and Project are combined in one bullet.",
+    "Unknown environment details and observation gaps were not listed separately.",
+    "Regression cases for the original failure and successful control are combined into one acceptance check."
+  ],
+  "operations": [
+    {
+      "operation": "read",
+      "source": [
+        "requests.md#C03",
+        "../outputs/C03",
+        "linear-handbook/references/writing.md"
+      ],
+      "result": "Retain original requirements, reread writing rules, and inspect first-round documents"
+    },
+    {
+      "operation": "save_revision",
+      "target": "C03",
+      "result": "Separated independent information and acceptance results and saved revised Markdown"
+    },
+    {
+      "operation": "preserve_original",
+      "target": "round1/",
+      "result": "Copy first-round data as file bytes for exact comparison"
+    },
+    {
+      "operation": "save_drafts",
+      "target": "Markdown for this case",
+      "result": "Saved and read back drafts"
+    },
+    {
+      "operation": "readback",
+      "target": "readback.json",
+      "result": "Checked documents, simulated bodies, and applicable evidence; revision.diff preserves line-by-line differences"
+    }
+  ]
+}

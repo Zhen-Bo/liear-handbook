@@ -1,0 +1,43 @@
+{
+  "issues": {
+    "SIM-401": {
+      "id": "SIM-401",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Permission investigation.",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z"
+    }
+  },
+  "connection": {
+    "actor": "agent-A",
+    "workspace": "sim-workspace",
+    "endpoint": "/mcp/readonly",
+    "scopes": [
+      "read"
+    ],
+    "visibleTeams": [
+      "SIM"
+    ]
+  },
+  "decisions": [
+    {
+      "issueId": "SIM-401",
+      "result": "Confirmed failure",
+      "error": "FORBIDDEN",
+      "applied": false,
+      "actor": "agent-A",
+      "workspace": "sim-workspace",
+      "endpoint": "/mcp/readonly",
+      "scopes": [
+        "read"
+      ],
+      "requiredScope": "write",
+      "draft": "permission-body.md",
+      "nextAction": "Have someone authorized to manage the connection restore the required write access and a writable endpoint for the same identity in SIM. After restoration, reread SIM-401, merge the deliverable link, and read back; reuse the existing authorization to maintain the body.",
+      "authorization": "requests.json permission.request",
+      "description": "Permission investigation.\n\n## Deliverables\n\n1. [Permission investigation report](artifacts/auth-report.md)."
+    }
+  ]
+}

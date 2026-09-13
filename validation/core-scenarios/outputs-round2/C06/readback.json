@@ -1,0 +1,45 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "docs/export-spec.md",
+      "sha256": "bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c",
+      "changed": true,
+      "checkboxCount": 0,
+      "localizedSha256": "890e9f3d03162c5dd7716e0d8959b0f039bac0f23aedefcecd239c99d0bbf325"
+    },
+    {
+      "file": "PAY-16.md",
+      "sha256": "adbd997935addd3d09e2715ecca58a8872098d2ac96496305a9bbb3cfd87e904",
+      "changed": true,
+      "checkboxCount": 7,
+      "localizedSha256": "848c5131dcf30ebd1c71381d1de5dce7f3eba11d8bf6340cc9f14529f94eb658"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Issue body synchronized; status matches the effective requirements",
+      "passed": true
+    },
+    {
+      "name": "Hashes agree across document bytes, verification, PAY-16, and simulated body",
+      "passed": true
+    },
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "followupChecks": [
+    {
+      "name": "Specified documents revised and reread",
+      "passed": true
+    },
+    {
+      "name": "Lowercase fields consistent; actual byte hashes synchronized across verification, issue body, and workspace",
+      "passed": true,
+      "sha256": "bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c"
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

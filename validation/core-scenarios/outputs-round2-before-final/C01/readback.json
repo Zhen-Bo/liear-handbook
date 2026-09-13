@@ -1,0 +1,51 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "environment.md",
+      "sha256": "35343621a7de516aebc9fce5e3b685eb8c89c9347c72e1a7908ffef46da5d5b6",
+      "changed": true,
+      "checkboxCount": 0,
+      "localizedSha256": "ec7a4046ca29dfeaf9588c7bc8189dc638f596fffffbe49a2f19154214c713cd"
+    },
+    {
+      "file": "PKT-1.md",
+      "sha256": "a6592e55749839a962cbb8c8106d48f6ace7af96b8a8d534f23b521c9a692fb2",
+      "changed": true,
+      "checkboxCount": 9,
+      "localizedSha256": "81f771acaf5314c6fa6e8793bea153bdb84da24c0b541f6ccddd4a3e58ad470e"
+    },
+    {
+      "file": "PKT-2.md",
+      "sha256": "fa3cb5dcae81ae56a0aa15827acbbe1b39b74d6c0372792f3cd3741b9a6114fc",
+      "changed": true,
+      "checkboxCount": 9,
+      "localizedSha256": "2610e4701dfd8b3e2c3a467b1ec1dc9c61a81d2cd7a970596a21177df3246a9f"
+    },
+    {
+      "file": "PKT-3.md",
+      "sha256": "022132d2a333b9040250ac5c5d4981ff2931ead0c625ae77c59fddace782cdc5",
+      "changed": true,
+      "checkboxCount": 16,
+      "localizedSha256": "73f3affbfaeaa9dcf93b359b924afa7199d46d10a9750c246fdf56969f7ca217"
+    },
+    {
+      "file": "project-brief.md",
+      "sha256": "f5db42297090d84e1720dbb7083263a2e3153148a002c947327f6b65b3a4adf3",
+      "changed": true,
+      "checkboxCount": 12,
+      "localizedSha256": "7138c2909683646c7a70f0a9dd455544425882bb2ccf769cf643f298c6e8731e"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Project description and three issue bodies synchronized",
+      "passed": true
+    },
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

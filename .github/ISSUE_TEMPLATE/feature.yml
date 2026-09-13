@@ -1,0 +1,32 @@
+name: Improvement proposal
+description: Suggest a new workflow, template, research area, or architecture improvement.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Problem to solve
+      description: Who encounters this problem, and in what situation?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected outcome
+      description: What should the improvement enable?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Include a proposal, alternatives, or relevant document locations.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Provide scenarios or outcomes that demonstrate the improvement works.
+  - type: textarea
+    id: sources
+    attributes:
+      label: References
+      description: Official documentation, examples, or research evidence.

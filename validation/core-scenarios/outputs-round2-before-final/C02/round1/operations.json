@@ -1,0 +1,30 @@
+{
+  "simulationOnly": true,
+  "source": "requests.md#C02",
+  "operations": [
+    {
+      "operation": "read_fixture",
+      "source": "requests.md#C02",
+      "result": "Read the authoritative data supplied for this case; source-fixture.md preserves its location"
+    },
+    {
+      "operation": "interpret",
+      "source": "requests.md#C02",
+      "result": "Read both listing pages and select proj-ledger; latest instructions prioritize FIN-10. Ready means ready to execute, not acceptance; FIN-9 has an active executor and FIN-8 lacks prerequisite artifacts."
+    },
+    {
+      "operation": "save_drafts",
+      "targets": [
+        "environment.md",
+        "FIN-10.md"
+      ],
+      "result": "Saved and read back usable drafts"
+    },
+    {
+      "operation": "planned_remote_fields",
+      "fields": null,
+      "result": "This case authorizes preparation/drafts only; statuses and relations in deliverables describe current state or plans, with no simulated remote writes"
+    }
+  ],
+  "mentionHandling": "No native mention tool contract or actual issue URLs were provided; documents use known identifiers, simulated relations preserve supplied IDs, and do not claim native mentions were created."
+}

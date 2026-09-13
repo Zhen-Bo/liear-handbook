@@ -1,0 +1,10 @@
+--- before/C01/environment.md
++++ after/C01/environment.md
+@@ -26,7 +26,6 @@
+ - Notifications
+   - Owner checks Inbox daily.
+   - Owner subscribes to issues they own.
+-  - Actual subscription fields for new issues were not provided.
+ - Priority: No priority for this round.
+ - Execution order: arrange by prerequisite artifacts.
+ - Labels: empty.

@@ -1,0 +1,68 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "backend.md",
+      "sha256": "bf95002cb8f8d4eba6e62b3a2f86b4e8ad2ed29b4bff4c22287236bd5b74873a",
+      "changed": true,
+      "checkboxCount": 15,
+      "localizedSha256": "f33d565e058b25930fca27b8cd4c5f6fb2d5706a63819cb200e458b6cbe6a496"
+    },
+    {
+      "file": "contract.md",
+      "sha256": "805f606ea3602eaa8141c35be6794086ca32b8b2e6984b2288a3ff6a2d41457f",
+      "changed": true,
+      "checkboxCount": 16,
+      "localizedSha256": "659e49310273f6de6bcf5300f4ba9cd4e0b501dd55289604018d6384d50e64df"
+    },
+    {
+      "file": "frontend.md",
+      "sha256": "722069233a24375e8bc2c5c6f56b40fc25f9a73bb9a0b6e937cbeccc0ff30a60",
+      "changed": true,
+      "checkboxCount": 11,
+      "localizedSha256": "0043ab66924a4c5c4aba05eddc2c8d5969ff9d9d03be018b679dfc575201926a"
+    },
+    {
+      "file": "integration.md",
+      "sha256": "9a5900675eec4e4397a6bbf51a3213890570d8825ad0a8d2295ce50b69869a42",
+      "changed": true,
+      "checkboxCount": 17,
+      "localizedSha256": "301ac3126a31c943bc3e6f35440787d4d87ae7dbdd15cce97567b6ae8efb43c1"
+    },
+    {
+      "file": "parent-feature.md",
+      "sha256": "2ecfb56fb33281b6fb361ed38e1444f6c733badb272a7de6361110f41ed36898",
+      "changed": true,
+      "checkboxCount": 18,
+      "localizedSha256": "52b83a628c7d9c75efbdb9ec5bdaef5787a4236305e9024d3bb86a4e4cd5bae0"
+    },
+    {
+      "file": "plan.md",
+      "sha256": "2645e853fd86e3cb76bb14cfb96b9731bc74b8b4f99a4621c9debebe0b34eff2",
+      "changed": true,
+      "checkboxCount": 0,
+      "localizedSha256": "4dd8d13f99928890c1ffd93ec693cc41ba70ba2aea3a270fcf6d7ab5d84d5721"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "followupChecks": [
+    {
+      "name": "Specified documents revised and reread",
+      "passed": true
+    },
+    {
+      "name": "All three documents define the complete set as the intersection of date, category, and read permission",
+      "passed": true
+    },
+    {
+      "name": "The first acceptance check in all three documents requires output equality with the complete set filtered by date, category, and permission",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

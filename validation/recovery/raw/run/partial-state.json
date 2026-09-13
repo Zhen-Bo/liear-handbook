@@ -1,0 +1,49 @@
+{
+  "issues": {
+    "SIM-301": {
+      "id": "SIM-301",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Report task.\noperation: report-job-8",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T02:00:00Z",
+      "blockedBy": [
+        "SIM-303",
+        "SIM-302"
+      ]
+    },
+    "SIM-302": {
+      "id": "SIM-302",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Provide the report API.",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z",
+      "blocks": [
+        "SIM-301"
+      ]
+    },
+    "SIM-303": {
+      "id": "SIM-303",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Provide the login flow.",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z",
+      "blocks": [
+        "SIM-301"
+      ]
+    }
+  },
+  "decisions": [
+    {
+      "operation": "report-job-8",
+      "issueId": "SIM-301",
+      "result": "Confirmed success",
+      "evidence": "Preserved the created ID; retained SIM-303 and added SIM-302 when replacing blockedBy; readback at both ends confirmed matching directions for SIM-301 blockedBy and SIM-302 blocks."
+    }
+  ]
+}

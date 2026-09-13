@@ -1,0 +1,15 @@
+{
+  "language": "en",
+  "scope": "English translation of synthetic recovery inputs, expectations, recorded requests, responses, final states, and reports.",
+  "historicalExpectedSha256": "54c6729f57c1e5dd5bfb83881f128a82e4628a19d27f31b845bbcd0f03b66dd4",
+  "translatedExpectedSha256": "97294ff54e89f81a4d37aee5cd6ee1c3beb60e68760f239ac0ca8cfe01ed45d2",
+  "historicalBaseline": "baseline.json",
+  "historicalAssessment": "assessment.json",
+  "verification": {
+    "command": "python validation/recovery/replay.py",
+    "requests": 30,
+    "responsesMatch": true,
+    "statesMatch": true,
+    "meaning": "Deterministic replay of translated recorded decisions, not a fresh Agent assessment."
+  }
+}

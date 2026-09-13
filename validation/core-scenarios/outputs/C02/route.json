@@ -1,0 +1,38 @@
+{
+  "skill_root": "../../linear-handbook",
+  "paths": [
+    {
+      "path": "SKILL.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/workspace-setup.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/policy.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/multi-agent-coordination.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/issue-lifecycle.md",
+      "mode": "loaded"
+    },
+    {
+      "path": "references/issue-types.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/writing.md",
+      "mode": "reused"
+    },
+    {
+      "path": "assets/templates/feature.md",
+      "mode": "reused"
+    }
+  ],
+  "note": "Shared batch reads were applied per case; loaded means the first applicable case, reused means using previously read content. Initial bulk output was truncated, so core workflows and templates were reread in smaller batches; feature-decomposition was loaded in a batch but its examples were not used to infer requirements."
+}

@@ -1,0 +1,480 @@
+# Linear feature coverage and adoption guide
+
+Verified: 2026-09-12.
+Context: an individual developer with multiple Agents.
+Evidence rules: [policy](policy.md#evidence-and-sources).
+Object selection: [object-model.md](object-model.md).
+Project policy: [writing rules](writing.md).
+
+## Feature matrix
+
+Purpose and limits record facts from official documentation.
+Importance expresses handbook recommendations.
+“Core” means the first-version workflow must address the problem.
+“Conditional adoption” means configuring the feature when the corresponding need exists.
+“Extension” means retaining an interface and a place for the decision.
+Source records at the end list sections and evidence status.
+
+- Search and views
+  - Purpose and behavior
+    - Global Search can search issue bodies and comments.
+    - Search within a view matches only ID/title.
+    - Custom Views save dynamic filters.
+  - Core uses (recommendations)
+    - Check duplicates before creation.
+    - Find pending work before execution.
+    - Review stalled work regularly.
+  - Permissions and plan limits
+    - Search returns at most 500 results.
+    - Sharing a view URL does not grant access.
+    - Initiative views requires Enterprise.
+    - Feature pages do not state the minimum plan for general search or issue/project views.
+  - Sources
+    - [Search](https://linear.app/docs/search).
+    - [Custom Views](https://linear.app/docs/custom-views).
+- Triage
+  - Purpose and behavior
+    - A Team inbox for reviewing work submitted by other Teams or integrations before admitting it into the workflow.
+    - Excluded from ordinary views by default.
+  - First-version importance and use (recommendations)
+    - Intake is core.
+    - Enable Triage when external entry points exist.
+    - An individual's existing backlog can initially be reviewed manually.
+  - Permissions and plan limits
+    - Must be enabled in Team settings.
+    - Configuration access is controlled by Team Settings Management.
+    - Business/Enterprise features
+      - Intelligence.
+      - Rules.
+      - Responsibility.
+    - The minimum plan for basic Triage needs confirmation.
+  - Sources
+    - [Triage](https://linear.app/docs/triage).
+    - [Members and roles](https://linear.app/docs/members-roles).
+- Feedback
+  - Purpose and behavior
+    - Customer Requests links feedback to an issue/project and preserves its source.
+    - Ordinary Team email intake creates issues but does not notify senders of subsequent updates.
+  - First-version importance and use (recommendations)
+    - Core: source → duplicate check → adopted conclusion → issue.
+    - Adopt Customer Requests conditionally.
+    - Evaluate Asks when two-way intake is needed.
+  - Permissions and plan limits
+    - Customer Requests explicitly lists Free, Basic, Business, and Enterprise; an Admin enables it.
+    - Integrations have separate plan limits.
+    - Asks and Intercom/Zendesk integrations are listed under Business.
+    - Guests cannot see Customer Requests; the FAQ and role documentation agree.
+  - Sources
+    - [Customer Requests](https://linear.app/docs/customer-requests).
+    - [Create issues](https://linear.app/docs/creating-issues).
+    - [Pricing](https://linear.app/pricing).
+    - [Members and roles](https://linear.app/docs/members-roles).
+- Templates
+  - Purpose and behavior
+    - Standard issue templates prefill content and properties.
+    - Form templates can require fields.
+    - Project templates can include milestones and issues.
+  - First-version importance and use (recommendations)
+    - Core use: reuse required input structure
+      - Outcome.
+      - Scope.
+      - Acceptance.
+    - Add Project templates for repeatable projects.
+  - Permissions and plan limits
+    - Workspace issue templates cannot preset Team-specific statuses/labels.
+    - Team templates are limited to the corresponding Team.
+    - Team Template Management can restrict management to Team owners.
+    - Minimum plans for individual template types are not stated.
+  - Sources
+    - [Issue templates](https://linear.app/docs/issue-templates).
+    - [Project templates](https://linear.app/docs/project-templates).
+    - [Members and roles](https://linear.app/docs/members-roles).
+- Recurring work
+  - Purpose and behavior
+    - Recurring issues create subsequent work according to due dates and cadence.
+    - Changes to the original template do not propagate to a recurrence.
+  - First-version importance and use (recommendation): adopt when maintenance has a fixed cadence and each occurrence has an assessable outcome.
+  - Permissions and plan limits
+    - Documentation states that the next issue is created at 00:01 on the day after the due date in the Team time zone.
+    - Creation is not triggered by completion.
+    - The feature page does not state a minimum plan or recurrence-specific role matrix.
+  - Source: [Create issues](https://linear.app/docs/creating-issues).
+- Analytics
+  - Purpose and behavior
+    - Insights computes metrics from the current view, such as
+      - Issue count.
+      - Cycle Time.
+      - Lead Time.
+    - Archived issues can be included.
+  - First-version importance and use (recommendations)
+    - Extension: use when there is a question about trends over time.
+    - In version one, use views to review pending work and blockers first.
+  - Permissions and plan limits
+    - Insights requires Business or Enterprise.
+    - Cycle Time plots only completed issues that passed through in progress; Lead Time includes only completed issues.
+    - Retain sampling criteria and visibility scope.
+  - Source: [Insights](https://linear.app/docs/insights).
+- Notifications
+  - Purpose and behavior
+    - Inbox receives notifications.
+    - Individuals can configure
+      - Desktop.
+      - Mobile.
+      - Email.
+      - Slack.
+      - Issue subscriptions.
+  - First-version importance and use (recommendations)
+    - Core: provide review entry points for owned work and blocking relationships.
+    - Subscribe only to views that require action.
+  - Permissions and plan limits
+    - Account settings and browser/OS permissions affect delivery.
+    - Notification categories group several event types and cannot be split arbitrarily.
+    - The feature page does not state a minimum plan.
+  - Sources
+    - [Notifications](https://linear.app/docs/notifications).
+    - [Custom Views](https://linear.app/docs/custom-views).
+- Import and export
+  - Purpose and behavior
+    - Dedicated importers or the CLI map external data into Linear.
+    - CSV supports analysis and record retention.
+  - First-version importance and use (recommendations)
+    - Adopt for
+      - Taking over a legacy system.
+      - Handing off data.
+      - External analysis.
+    - Select necessary data first.
+  - Permissions and plan limits
+    - Import requires a Workspace Admin and access to the source.
+    - Workspace issue CSV export requires an Admin, or an Owner on Enterprise.
+    - View export limits are 250 issues for Members and 2,000 for Admins/Enterprise Owners.
+    - Guests cannot export issues.
+    - CSV does not contain attachment files.
+    - The minimum plan needs confirmation.
+  - Sources
+    - [Importing guidance](https://linear.app/docs/import-issues).
+    - [Exporting Data](https://linear.app/docs/exporting-data).
+- Archiving
+  - Purpose and behavior
+    - Auto-close closes stalled work.
+    - Auto-archive moves work into the archive when closure and inactivity conditions are met.
+    - Archived work can be restored.
+  - First-version importance and use (recommendations)
+    - Core use: distinguish the effects of
+      - Closing.
+      - Archiving.
+      - Deleting.
+    - Adopt automation conditionally so cleanup does not substitute for acceptance.
+  - Permissions and plan limits
+    - Issues are archived by automation; there is no manual archive option.
+    - Relationships that can delay archiving depend on the documented conditions
+      - Parent/sub-issues.
+      - Active Cycle.
+      - Unfinished Project.
+    - Team settings permissions are restricted.
+    - Deleted issues have a recovery window of only 30 days.
+    - The minimum plan is not stated.
+  - Sources
+    - [Delete and archive issues](https://linear.app/docs/delete-archive-issues).
+    - [Members and roles](https://linear.app/docs/members-roles).
+
+## Adoption and follow-up workflows
+
+Choose the following workflows according to actual needs.
+Assess check results against actual data.
+
+- Search and views
+  - Trigger and input: preparing to create an issue or reviewing a stalled backlog.
+  - Expected check results
+    - Duplicate-search scope
+      - Issue bodies.
+      - Comments.
+      - Relevant archived work.
+    - Link an existing issue when found and explain its relationship.
+    - Save filters with clear purposes, such as “Awaiting intake,” “Stalled,” or “Closure to confirm.”
+  - Follow-up work
+    - Duplicate/stalled-work checks in [maintenance](maintenance.md).
+    - View permission inventory in [workspace-setup](workspace-setup.md).
+- Triage
+  - Trigger and input: external feedback or an integration creates a new issue.
+  - Expected check results
+    - Intake decision
+      - Confirm the problem context.
+      - Find existing work.
+      - Assign an owner.
+      - Accept adopted work into the workflow.
+      - Link duplicates to the canonical issue.
+      - Record reasons for rejection.
+    - Set a traceable return condition when awaiting information.
+    - Ensure the view explicitly includes Triage status.
+  - Follow-up work
+    - Intake checks in [maintenance](maintenance.md).
+    - Enablement and configuration permissions in [workspace-setup](workspace-setup.md).
+- Feedback
+  - Trigger and input: a source message or Customer Request arrives.
+  - Expected check results
+    - Retain a locatable source.
+    - Attach it to existing work first, then decide whether to create another verifiable issue.
+    - Update the body with the currently adopted conclusion.
+    - Confirm recipients and sending authorization separately when a reply is needed.
+  - Follow-up work
+    - Feedback flow in [maintenance](maintenance.md).
+    - Product operations expansion in [extension-model](extension-model.md).
+- Templates
+  - Trigger and input: recurring omissions of required information in similar issues.
+  - Expected check results
+    - Add necessary questions to a standard template.
+    - Use a form only for inputs required at creation.
+    - Follow writing.md for acceptance checkboxes and numbered completed items.
+  - Follow-up work
+    - Select by work type using [issue-types](issue-types.md).
+    - Inventory native configuration using [workspace-setup](workspace-setup.md).
+- Recurring work
+  - Trigger and input: stable maintenance work with an owner.
+  - Expected check results
+    - Define recurrence settings
+      - Cadence.
+      - Team time zone.
+      - Completion criteria for each occurrence.
+      - Schedule maintainer.
+    - Check whether unfinished prior work requires schedule changes.
+    - Edit the recurrence directly when changing its wording.
+  - Follow-up work: define maintenance cadence in [maintenance](maintenance.md).
+- Analytics
+  - Trigger and input: a concrete question such as “Which work waits longest?”
+  - Expected check results
+    - Save filter criteria before interpreting charts
+      - Date range.
+      - Status.
+      - Inclusion of archived issues.
+    - Obtain separate evidence for
+      - Quality acceptance.
+      - Completed deployment.
+      - User acceptance.
+  - Follow-up work
+    - Select maintenance metrics in [maintenance](maintenance.md).
+    - Evaluate fuller operational analytics in [extension-model](extension-model.md).
+- Notifications
+  - Trigger and input: handoff, blocked work, or waiting for another person.
+  - Expected check results
+    - Confirm issue subscriptions and handling responsibility.
+    - Use view subscriptions for specific statuses when needed.
+    - Read Inbox items and delivered email are not acceptance evidence.
+  - Follow-up work
+    - Configure review entry points in [maintenance](maintenance.md).
+    - Check Agent-readable notification interfaces in [agent-tool-capabilities](agent-tool-capabilities.md).
+- Import and export
+  - Trigger and input: taking over an existing tool or retaining handoff data.
+  - Expected check results
+    - Select sources and samples first.
+    - Check imported results individually
+      - Record counts.
+      - Status mappings.
+      - Parent-child relationships.
+      - Comments.
+      - Attachment readability.
+    - Check omitted fields against the specific importer documentation before deciding on a full migration.
+  - Follow-up work
+    - Takeover inventory in [workspace-setup](workspace-setup.md).
+    - Storage decisions in [documentation](documentation.md).
+- Archiving
+  - Trigger and input: periodic review of stale and closed work.
+  - Expected check results
+    - Decide status using delivery evidence first, then inspect auto-close/auto-archive conditions.
+    - Retain closure reasons and deliverable entry points.
+    - Restore archived work before editing it.
+  - Follow-up work
+    - Closure rules in [issue-lifecycle](issue-lifecycle.md).
+    - Backlog cleanup in [maintenance](maintenance.md).
+
+See [writing](writing.md) for writing defaults.
+“Core” classifications in the matrix are adoption recommendations.
+
+## Plans and open questions
+
+- Plan baseline: Pricing lists Free with 2 Teams/250 Issues, Basic with 5 Teams/unlimited Issues, and Business/Enterprise with unlimited Teams/Issues. [Pricing](https://linear.app/pricing)
+- Permission baseline: Free members are automatically Admins.
+- On Business/Enterprise, Team owners can restrict template and Team settings management. Feature availability still requires checking each operator's permissions. [Members and roles](https://linear.app/docs/members-roles)
+- Text extraction of Pricing did not retain every comparison-table checkmark. Only explicit plan statements are treated as facts; unlabeled features are not assumed available on every plan.
+
+- Actual Workspace plan, Team access, and management permissions
+  - Current interpretation and impact
+    - The matrix describes publicly documented product capabilities.
+    - Confirm availability in this environment before configuration.
+  - Verification and follow-up
+    - Use workspace-setup to read Billing and Team Access and permissions.
+    - See [Billing and plans](https://linear.app/docs/billing-and-plans) for the Billing path.
+- Minimum plans for some basic features are unstated
+  - Features needing separate confirmation
+    - Search.
+    - General views.
+    - Basic Triage.
+    - Templates.
+    - Recurrence.
+    - Notifications.
+    - Import/export.
+    - Archiving.
+  - Verification and follow-up
+    - Use workspace-setup to open the actual plan comparison and relevant settings.
+    - If unclear, ask Linear support about the specific feature and plan.
+    - Manual intake and document templates can remain in use before adoption.
+- Guest feedback handoff and integration visibility
+  - Current interpretation and impact
+    - The FAQ in Customer Requests and the Guest section in Members and roles both explicitly exclude Guest access to Customer Requests.
+    - These sources now establish a consistent limit.
+  - Verification and follow-up
+    - During setup, verify access using a Guest role
+      - Issues.
+      - Attachments.
+      - External integrations.
+    - Customer Requests cannot be the only handoff entry point.
+- The Customer Requests FAQ plan table omits a Basic column
+  - Current interpretation and impact
+    - The Customer Requests FAQ explicitly includes Basic.
+    - The integration table does not fully represent Basic.
+    - Assess Customer Requests and integration availability separately.
+  - Verification and follow-up: when a specific integration is needed on Basic, read its page and settings rather than inferring eligibility from the feature itself.
+- Recurrence handling of unfinished prior work and Agent-manageable fields
+  - Current interpretation and impact
+    - Documentation establishes time-based creation but does not guarantee non-overlapping work.
+    - Native UI features cannot automatically be presented as MCP operations.
+  - Verification and follow-up
+    - Before adoption, maintenance uses a controlled sample to check the relationship between the next occurrence and unfinished prior work.
+    - agent-tool-capabilities checks API/MCP capabilities and readback.
+- Import completeness and CSV coverage as a recovery source
+  - Current interpretation and impact
+    - Field mappings vary by source.
+    - CSV excludes attachments and cannot support a promise of full Workspace restoration.
+  - Verification and follow-up
+    - Sample against the specific importer documentation
+      - Comments.
+      - Attachments.
+      - Relationships.
+    - documentation defines how deliverables are retained.
+- Auto-archive timing and settings location
+  - Current interpretation and impact
+    - Delete and archive issues uses both Workflows & automations and Issue statuses & automations as names.
+    - Setting changes normally take effect on the next run within 24 hours.
+  - Verification and follow-up
+    - workspace-setup records the actual settings entry point and time limits.
+    - maintenance interprets delays against related work states.
+    - These sources did not establish whether archived issues are excluded from Free limits; archiving is not used as a quota workaround.
+
+## Source records
+
+All 15 sources below are published by Linear and were verified on 2026-09-12.
+Page-level publication/update dates were not confirmed.
+Evidence status: confirmed in documentation.
+Section names provide in-page search locations.
+Guest handoff checkpoints and minimum-plan gaps appear above.
+
+- [Search](https://linear.app/docs/search)
+  - Sections and supported conclusions
+    - Search workspace.
+    - Search specific views.
+    - Q&A.
+    - Search scope and result limits.
+  - Applicability: native search interface, not an MCP search specification.
+- [Custom Views](https://linear.app/docs/custom-views)
+  - Sections
+    - Page introduction.
+    - Create views.
+    - Copy view link.
+    - Issue view subscriptions.
+  - Applicability
+    - Initiative views has an explicit paid-plan requirement.
+    - URLs do not grant access.
+- [Triage](https://linear.app/docs/triage)
+  - Sections and supported conclusions
+    - Configure.
+    - Automation.
+    - FAQ.
+    - Supported conclusions
+      - Intake.
+      - Advanced features.
+      - Exclusion from views.
+  - Applicability: Team enablement is required; advanced features vary by plan.
+- [Customer Requests](https://linear.app/docs/customer-requests)
+  - Sections and supported conclusions
+    - Configure.
+    - Add requests.
+    - FAQ.
+    - Feedback relationships and plans.
+  - Applicability
+    - The FAQ explicitly excludes Guest visibility.
+    - Confirm specific integrations for Basic separately.
+- [Issue templates](https://linear.app/docs/issue-templates)
+  - Sections
+    - Create standard issue templates.
+    - Create form templates.
+  - Applicability: Workspace and Team properties have different scopes.
+- [Create issues](https://linear.app/docs/creating-issues)
+  - Sections
+    - Create an issue via email.
+    - Create recurring issues.
+  - Applicability: Team time zones and maintenance of existing recurrence content.
+- [Insights](https://linear.app/docs/insights)
+  - Sections
+    - Page introduction.
+    - Apply filters.
+    - Select Insights Parameters.
+  - Applicability
+    - Business/Enterprise.
+    - Automatic sampling conditions affect metrics.
+- [Notifications](https://linear.app/docs/notifications)
+  - Sections
+    - Configure.
+    - Notification timing.
+    - Subscribing to an issue.
+    - FAQ.
+  - Applicability: account, channel, and system settings affect notifications.
+- [Importing guidance](https://linear.app/docs/import-issues)
+  - Sections
+    - Page introduction.
+    - Choose an import method.
+    - Understand the import process.
+  - Applicability
+    - Admin required.
+    - Data mapping depends on the source importer.
+- [Exporting Data](https://linear.app/docs/exporting-data)
+  - Sections
+    - Workspace CSV exports.
+    - Issue view CSV exports.
+  - Applicability
+    - Role and record-count limits.
+    - Attachment files excluded.
+- [Delete and archive issues](https://linear.app/docs/delete-archive-issues)
+  - Sections
+    - Delete issues.
+    - Auto-close.
+    - Auto-archive.
+    - Restore issues.
+  - Applicability
+    - Relationship and time conditions.
+    - Different settings-path names.
+- [Pricing](https://linear.app/pricing)
+  - Sections
+    - Free.
+    - Basic.
+    - Business.
+    - Enterprise plan cards.
+  - Applicability
+    - Plans change.
+    - Comparison-table checkmarks were not fully represented in text.
+- [Members and roles](https://linear.app/docs/members-roles)
+  - Sections
+    - Admin.
+    - Team owner.
+    - Member.
+    - Guest.
+  - Applicability
+    - Plans.
+    - Workspace restrictions.
+    - Team management permissions.
+- [Project templates](https://linear.app/docs/project-templates)
+  - Sections
+    - Overview.
+    - Create templates.
+  - Applicability: Workspace and Team templates have different availability scopes.
+- [Billing and plans](https://linear.app/docs/billing-and-plans)
+  - Section and supported conclusion: Manage your billing.
+  - Applicability: provides the entry point for checking the actual plan.

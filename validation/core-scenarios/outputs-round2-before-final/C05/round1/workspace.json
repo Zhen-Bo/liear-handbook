@@ -1,0 +1,15 @@
+{
+  "issue": {
+    "identifier": "EXP-21",
+    "statusId": "exp-implement",
+    "body": "# Export all filtered data\n\n## Current results\n\n- PR #81 is merged; version [merge-81-abc](fixture://exp-21/merge-81-abc).\n- PR review and unit tests passed.\n- Lin’s latest acceptance data expects IDs 1–240; actual.csv contains only IDs 1–80, each once.\n- IDs 81–240 are missing, 160 records total; full export acceptance failed.\n- Evidence: [actual.csv](fixture://exp-21/actual.csv), from the latest comment and acceptance data in requests.md C05.\n- Current stage: Implementing/exp-implement, for the missing-record fix.\n\n## Required acceptance\n\n- [ ] 240  records complete, each exactly once.\n- [ ] Chinese and newline fields are correct.\n- [ ] Include only data readable by the current user.\n\n## Next steps\n\n1. Open the export query path in merge-81-abc; compare actual.csv IDs with query responses stage by stage to locate missing data.\n2. Fix missing records using traceable evidence; rerun the same 240 records and check count, ID set, and duplicates.\n3. Check Chinese, newline, and permission cases; link each result to the tested version before declaring completion.\n\n## Relations and workflow\n\n- Parent EXP-20: Implementing, waiting for this required export artifact.\n- Merge automation using a PR closing relation set this issue to Done before product acceptance.\n- The automation settings maintainer should check whether to map merging to acceptance; current tools only support issue updates.\n"
+  },
+  "parent": {
+    "identifier": "EXP-20",
+    "status": "Implementing"
+  },
+  "automation": {
+    "closingMerge": "Done",
+    "parentSubIssue": false
+  }
+}

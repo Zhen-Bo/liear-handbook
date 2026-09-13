@@ -1,0 +1,59 @@
+{
+  "simulation": true,
+  "id_allocation": "sim-* IDs are allocated by the local simulator; PKT-* identifiers are simulated sequential allocations after an empty issue list.",
+  "project": {
+    "id": "sim-pocket-v1",
+    "name": "Personal expense tracker v1",
+    "teamIds": [
+      "team-pocket"
+    ],
+    "leadId": "user-owner",
+    "description": "# Personal expense tracker v1\n\n## Goal\n\nAllow individuals to add expense amounts and categories.\nUsers can view the monthly total and find saved expenses after refreshing.\nRequirement basis: requests.md C01.\n\n## Adopted scope\n\n- Storage: localStorage in one browser.\n- Amount: positive integer TWD.\n- Category\n  - Food.\n  - Transport.\n  - Other.\n- Version 1 capabilities\n  - Add an expense.\n  - View the current monthly total.\n- Working baseline\n  - Repository: pocket-web.\n  - Version: fixture-base-01.\n  - Technology: Vite + TypeScript.\n  - Test tool: Vitest.\n- Engineering conventions for this round, adjustable during implementation\n  - Record the time when adding.\n  - Determine the current month from the browser’s local year and month.\n  - Inject the clock to verify cross-month behavior.\n\n## Success criteria\n\n- [ ] After adding TWD 85 Food and TWD 100 Transport, the monthly total is TWD 185.\n  1. Use isolated localStorage.\n  2. Fix the clock in the current month.\n  3. Add the two expenses above through the interface.\n  4. Check the displayed total is TWD 185.\n- [ ] After refresh, both expense amounts and categories match the added content.\n  1. Add TWD 85 Food and TWD 100 Transport through the interface.\n  2. Refresh.\n  3. Compare saved contents record by record.\n- [ ] After refresh, the monthly total is still TWD 185.\n- [ ] An amount of 0 does not add an expense.\n- [ ] A negative amount does not add an expense.\n- [ ] A fractional amount does not add an expense.\n- [ ] A blank amount does not add an expense.\n- [ ] Invalid amounts display corrective guidance.\n- [ ] Exclude previous-month expenses from the current monthly total.\n- [ ] Empty data has a monthly total of 0.\n- [ ] Display the failure result when storage fails.\n- [ ] Do not report a successful addition when storage fails.\n\n## Responsibilities and entry points\n\n- Project lead: Owner/user-owner.\n- Requirement decision-maker: Owner/user-owner.\n- Outcome reviewer: Owner/user-owner.\n- Simulated Project: sim-pocket-v1.\n- Team: team-pocket.\n- Initial work\n  - [PKT-1](PKT-1.md): data functions.\n    - Executor: session A.\n  - [PKT-2](PKT-2.md): expense interface.\n    - Executor: session B.\n    - Prerequisite: usable PKT-1 contract and data functions.\n  - [PKT-3](PKT-3.md): workflow integration.\n    - Executor: session A.\n    - Prerequisite: PKT-1 artifact.\n    - Prerequisite: PKT-2 artifact.\n\n## Next steps\n\n1. A checks the repository state for PKT-1.\n2. Deliver the data contract.\n3. Complete the data functions and their verification.\n"
+  },
+  "issues": [
+    {
+      "id": "sim-pkt-1",
+      "identifier": "PKT-1",
+      "teamId": "team-pocket",
+      "projectId": "sim-pocket-v1",
+      "assigneeId": "user-owner",
+      "statusId": "st-todo",
+      "priority": "No priority",
+      "labels": [],
+      "estimate": null,
+      "body": "# Deliver expense persistence and monthly-total data functions\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session A.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Input\n  - [Project brief](project-brief.md).\n  - Pocket-web/fixture-base-01.\n- Exclusive write scope\n  - src/expenses/.\n  - Corresponding Vitest checks.\n  - docs/expense-contract.md.\n- Data contract\n  - Expense identity.\n  - Amount.\n  - Category.\n  - Creation time.\n  - Storage key.\n  - Data version.\n  - Error results.\n- Function deliverables\n  - Add an expense.\n  - Reread.\n  - Current monthly total.\n- Documentation deliverable: complete call examples.\n- Clock: injectable.\n- Month determination: browser local year and month.\n\n## Acceptance\n\n- [ ] After saving and rereading, TWD 85 Food and TWD 100 Transport match their original values.\n- [ ] Nonpositive or noninteger amounts are not written.\n- [ ] Write failures return an error the interface can display.\n- [ ] TWD 85 and TWD 100 in the same month total TWD 185.\n- [ ] Previous-month data is excluded from the current monthly total.\n- [ ] Empty data has a monthly total of 0.\n- [ ] The contract is sufficient for B to integrate using the call examples.\n  1. Read the contract’s input and output definitions.\n  2. Call data functions using the success example.\n  3. Check error outcomes against error examples.\n- [ ] Relevant Vitest checks pass.\n- [ ] Verification records identify the tested version.\n\n## Next steps\n\n1. Read the empty Vite repository.\n2. Check the existing test configuration.\n3. Define the complete contract.\n4. Complete the data functions.\n5. Run verification and save the record.\n",
+      "blockedBy": []
+    },
+    {
+      "id": "sim-pkt-2",
+      "identifier": "PKT-2",
+      "teamId": "team-pocket",
+      "projectId": "sim-pocket-v1",
+      "assigneeId": "user-owner",
+      "statusId": "st-backlog",
+      "priority": "No priority",
+      "labels": [],
+      "estimate": null,
+      "body": "# Provide expense entry and monthly-total interface\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session B.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Required inputs\n  - PKT-1’s docs/expense-contract.md.\n  - PKT-1’s callable data functions.\n- Exclusive write scope\n  - src/ui/expenses/.\n  - Corresponding interface checks.\n- Interface contents\n  - Amount field.\n  - Category choices: Food/Transport/Other.\n  - Save action.\n  - Current monthly total.\n- Interface verification: use a contract-compatible adapter.\n- Integration entry-point maintainer: PKT-3.\n\n## Acceptance\n\n- [ ] Successful addition displays the latest monthly total.\n- [ ] Invalid amounts display corrective guidance.\n- [ ] Invalid amounts do not submit an addition.\n- [ ] Display an error on save failure.\n- [ ] Allow retrying after a save failure.\n- [ ] Empty data displays a total of 0.\n- [ ] Keyboard operation can complete the add flow.\n- [ ] Interface verification results are saved.\n- [ ] The integration successor can locate the interface export entry point.\n\n## Next steps\n\n1. Confirm the PKT-1 artifact version.\n2. Check the calling contract.\n3. Build the interface.\n4. Check behavior against each acceptance criterion.\n",
+      "blockedBy": [
+        "sim-pkt-1"
+      ]
+    },
+    {
+      "id": "sim-pkt-3",
+      "identifier": "PKT-3",
+      "teamId": "team-pocket",
+      "projectId": "sim-pocket-v1",
+      "assigneeId": "user-owner",
+      "statusId": "st-backlog",
+      "priority": "No priority",
+      "labels": [],
+      "estimate": null,
+      "body": "# Complete expense workflow integration and verify persistence after refresh\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session A.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Required inputs\n  - Usable version of PKT-1 data functions.\n  - Usable version of the PKT-2 interface.\n- Exclusive write scope\n  - Actual Vite startup entry point.\n  - Required integration changes.\n  - verification/pocket-v1.md.\n- Connect real localStorage.\n- Connect the expense interface.\n- Fix gaps caused by integration.\n- Perform browser acceptance against the Project brief.\n\n## Acceptance\n\n- [ ] After adding TWD 85 for Food and TWD 100 for Transport in the browser, the monthly total is TWD 185.\n- [ ] After refresh, both expenses match the added content.\n- [ ] After refresh, the monthly total is still TWD 185.\n- [ ] Previous-month expenses are excluded from the current monthly total.\n- [ ] Empty data totals 0.\n- [ ] Amount 0 does not add an expense.\n- [ ] Negative amounts do not add an expense.\n- [ ] Fractional amounts do not add an expense.\n- [ ] Blank amounts do not add an expense.\n- [ ] Invalid amounts display corrective guidance.\n- [ ] Display the failure result on storage failure.\n- [ ] Do not report a successful addition when storage fails.\n- [ ] Acceptance records identify the tested version.\n- [ ] Acceptance records identify the browser.\n- [ ] Acceptance records identify isolated data.\n- [ ] Owner can locate each acceptance result from the record.\n\n## Next steps\n\n1. Read both artifacts.\n2. Check version and interface-contract compatibility.\n3. Connect the startup entry point.\n4. Perform the browser acceptance above.\n5. Save individual results.\n",
+      "blockedBy": [
+        "sim-pkt-1",
+        "sim-pkt-2"
+      ]
+    }
+  ]
+}

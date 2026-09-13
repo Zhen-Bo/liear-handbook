@@ -1,0 +1,44 @@
+{
+  "issues": {
+    "SIM-201": {
+      "id": "SIM-201",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Deliver CSV report export.\noperation: other-job",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z",
+      "title": "Report export",
+      "parentId": "SIM-100"
+    },
+    "SIM-202": {
+      "id": "SIM-202",
+      "workspace": "sim-workspace",
+      "team": "SIM",
+      "project": "recovery-demo",
+      "description": "Deliver JSON report export.\noperation: recovery-job-7",
+      "state": "In Progress",
+      "updatedAt": "2026-09-13T01:00:00Z",
+      "title": "Report export",
+      "parentId": "SIM-100"
+    }
+  },
+  "pages": [
+    [
+      "SIM-201"
+    ],
+    [
+      "SIM-202"
+    ]
+  ],
+  "decisions": [
+    {
+      "operation": "recovery-job-7",
+      "requestId": "req-7",
+      "result": "Confirmed success",
+      "issueId": "SIM-202",
+      "evidence": "The original request has stopped but its result is unavailable; queried both pages under SIM / recovery-demo / SIM-100 with includeArchived=true. SIM-201 is the other-job CSV task; direct readback of SIM-202 confirmed the JSON goal and operation match.",
+      "nextAction": "Continue implementing the JSON report in SIM-202."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "round": 2,
+  "skillRoot": "../../linear-handbook",
+  "paths": [
+    {
+      "path": "SKILL.md",
+      "mode": "reused"
+    },
+    {
+      "path": "references/writing.md",
+      "mode": "loaded"
+    }
+  ],
+  "priorRoute": "round1/route.json",
+  "action": "Follow first-round effective requirements and workflow; reread writing.md to review deliverables."
+}

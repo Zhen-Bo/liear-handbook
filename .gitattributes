@@ -1,0 +1,3 @@
+# Preserve the bytes used by historical fixture hashes.
+validation/core-scenarios/** -text
+validation/recovery/** -text

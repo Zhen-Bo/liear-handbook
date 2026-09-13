@@ -1,0 +1,368 @@
+--- round1/backend.md
++++ backend.md
+@@ -2,22 +2,45 @@
+ 
+ ## Inputs and scope
+ 
+-- Blocked by: the usable contract and examples from contract.md.
++- Blocked by: the usable contract from contract.md.
+ - Executor: Agent A.
+-- Write location: src/export/ and corresponding verification.
+-- Implement complete queries, permission filtering, stable sorting, the 5000 limit, and CSV encoding.
+-- Empty data outputs a header; exceeding the limit produces no file.
+-- Deliver an implementation version callable by the integration entry point and data comparison evidence.
++- Write location
++  - src/export/.
++  - Corresponding verification.
++- Implementation contents
++  - Complete query.
++  - Permission filtering.
++  - Stable sorting.
++  - 5000 -record limit.
++  - CSV encoding.
++- Empty data: output a header.
++- Over the limit: produce no file.
++- Delivery entry point: implementation version callable by integration.
++- Verification deliverable: data comparison evidence.
+ 
+ ## Acceptance
+ 
+-- [ ] The multi-page data set exactly matches the expected complete readable set, each record once.
+-- [ ] Column order and sorting match the contract.
+-- [ ] Chinese, commas, quotes, and newlines match the original values after parsing.
+-- [ ] 0, 5000, and 5001 records meet the contract; exceeding the limit produces no file.
+-- [ ] Unreadable data is excluded, and applicable error checks pass.
++- [ ] Cross-page export contains all readable data matching the date range.
++- [ ] The export contains only data matching the category filter.
++- [ ] Each matching record appears exactly once.
++- [ ] Column order matches the contract.
++- [ ] Data sorting matches the contract.
++- [ ] Chinese notes match their original values after parsing.
++- [ ] Comma-containing notes match their original values after parsing.
++- [ ] Double-quote notes match their original values after parsing.
++- [ ] Newline notes match their original values after parsing.
++- [ ] 5000  records generate completely.
++- [ ] 5001  records display a prompt to narrow the range.
++- [ ] 5001  records create no file.
++- [ ] No matches downloads a CSV with only the four-column header.
++- [ ] Unreadable data never appears in the output.
++- [ ] General error responses match the contract.
+ 
+ ## Next steps
+ 
+-1. Read the reviewed contract version and create known multi-page data.
+-2. Implement and verify complete queries and serialization; preserve the entry point for integration.
++1. Read the reviewed contract version.
++2. Create known multi-page data.
++3. Implement the complete query.
++4. Implement CSV serialization.
++5. Check each acceptance criterion.
++6. Save the integration entry point and verification evidence.
+--- round1/contract.md
++++ contract.md
+@@ -2,25 +2,63 @@
+ 
+ ## Inputs and scope
+ 
+-- Input: parent-feature.md; the existing query API provides only current-page responses.
++- Input: [parent-feature.md](parent-feature.md).
++- Existing API limitation: current-page response only.
+ - Executor: Agent A.
+-- Delivery location: docs/export-contract.md, used by both implementation sub-issues.
+-- Define date boundaries, time zone, category representation, stable sorting, and tie-breakers.
+-- Define the interface for retrieving all filtered data and its connection to the existing paginated API.
+-- Define where current-user permission checks occur and how limits are detected.
+-- Define successful file responses, empty header files, limit-exceeded responses, and general errors.
+-- Define CSV encoding and special-character escaping; provide Chinese, comma, quote, and newline cases.
+-- These contract details are missing; inspect existing data/APIs and record choices first. The maintainer decides unresolved conflicts constrained by existing product semantics.
++- Delivery location: docs/export-contract.md.
++- Readers: frontend/backend implementation successors.
++- Filter contract
++  - Date boundaries.
++  - Time zone.
++  - Category representation.
++- Sorting contract
++  - Primary sort.
++  - Tie-breaker for equal sort values.
++- Query contract
++  - Interface for retrieving the complete filtered data set.
++  - Connection to the existing paginated API.
++  - Location of current-user permission checks.
++  - Limit-detection method.
++- Response contract
++  - Successful file.
++  - Empty header file.
++  - Limit-exceeded error.
++  - General errors.
++- CSV contract
++  - Encoding.
++  - Special-character escaping rules.
++  - Chinese example.
++  - Comma example.
++  - Quote example.
++  - Newline example.
++- Current gap: these detailed contracts have not been supplied.
++- Confirmation method: check choices against existing data and APIs.
++- The maintainer decides unresolved semantic conflicts.
+ 
+ ## Acceptance
+ 
+-- [ ] Frontend and backend can be implemented independently against the same request/response examples.
+-- [ ] Cross-page data, date boundaries, sort ties, and unreadable data all have determinable results.
+-- [ ] 0, 5000, and 5001 records have explicit file or error outcomes.
+-- [ ] Special characters round-trip through contract serialization and parsing.
+-- [ ] The contract does not treat the current page as the complete data set; both implementation sub-issues can locate the adopted version.
++- [ ] Frontend can be implemented independently against the request/response examples.
++- [ ] Backend can be implemented independently against the same contract version.
++- [ ] Cross-page data sets have determinable results.
++- [ ] Date boundaries have determinable results.
++- [ ] Tied sort values have a determinable result.
++- [ ] Unreadable data has a determinable result.
++- [ ] 0 -record case defines a header-file result.
++- [ ] 5000 -record case defines a complete-file result.
++- [ ] 5001 -record case defines a prompt to narrow the range.
++- [ ] 5001 -record case explicitly creates no file.
++- [ ] Chinese text round-trips through contract serialization and parsing.
++- [ ] Commas round-trip through contract serialization and parsing.
++- [ ] Quotes round-trip through contract serialization and parsing.
++- [ ] Newlines round-trip through contract serialization and parsing.
++- [ ] The complete query is not restricted to the current page.
++- [ ] Both successors can locate the adopted version.
+ 
+ ## Next steps
+ 
+-1. Inspect existing data and APIs, then complete the shared contract and examples.
+-2. Unblock both implementations after the maintainer reviews the usable version.
++1. Inspect existing data.
++2. Inspect the API.
++3. Complete the shared contract.
++4. Add examples.
++5. The maintainer reviews the contract.
++6. Unblock both implementations once the contract is usable.
+--- round1/frontend.md
++++ frontend.md
+@@ -4,19 +4,36 @@
+ 
+ - Blocked by: the usable request/response contract from contract.md.
+ - Executor: Agent B.
+-- Write location: src/ui/export/ and corresponding interface verification.
+-- Submit the date range and category according to the contract; handle successful downloads and errors.
+-- Verify independently with contract response doubles; hand off to integration.md to connect the real backend.
++- Write location
++  - src/ui/export/.
++  - Corresponding interface verification.
++- Submit the date range.
++- Submit the category filter.
++- Handle successful downloads.
++- Handle error responses.
++- Verification method: contract response doubles.
++- integration.md handles connection to the real backend.
+ 
+ ## Acceptance
+ 
+-- [ ] The operation includes current date and category filters; full export is unaffected by current pagination.
+-- [ ] A successful response triggers a file download; an empty result still downloads a header file.
+-- [ ] Exceeding the limit prompts narrowing the range and does not trigger a download.
+-- [ ] General failures are understandable and allow retrying.
+-- [ ] Verification records state the response-double scope and delivered version.
++- [ ] The request includes the current date range.
++- [ ] The request includes the current category filter.
++- [ ] Full export requests are not restricted to the current page.
++- [ ] A successful response triggers a file download.
++- [ ] Empty results still download a header file.
++- [ ] Exceeding the limit displays a prompt to narrow the range.
++- [ ] Exceeding the limit does not trigger a download.
++- [ ] General failures display understandable errors.
++- [ ] Allow retrying after failure.
++- [ ] Verification records state the response-double scope.
++- [ ] Verification records identify the delivered version.
+ 
+ ## Next steps
+ 
+-1. Read the contract and prepare success, empty-data, limit-exceeded, and failure responses.
+-2. Implement the interface and check input/response behavior.
++1. Read the contract.
++2. Prepare success responses.
++3. Prepare empty-data responses.
++4. Prepare limit-exceeded responses.
++5. Prepare general failure responses.
++6. Implement the interface.
++7. Check each acceptance behavior.
+--- round1/integration.md
++++ integration.md
+@@ -2,20 +2,46 @@
+ 
+ ## Inputs and scope
+ 
+-- Blocked by: usable implementation and verification versions from backend.md and frontend.md.
++- Blocked by
++  - The usable implementation version from Backend.md.
++  - The usable implementation version from Frontend.md.
+ - Executor: Agent A.
+-- Sole shared-entry writer: Agent A, src/app/export.ts.
+-- Delivery location: verification/csv-export.md and the integration version.
+-- Connect the complete query and interface; run all overall acceptance checks in parent-feature.md.
++- Shared entry point: src/app/export.ts.
++- Sole writer for the shared entry point: Agent A.
++- Deliverables
++  - Integration version.
++  - verification/csv-export.md.
++- Connect the complete-query functions.
++- Connect the download interface.
++- Perform all overall acceptance checks in parent-feature.md.
+ 
+ ## Acceptance
+ 
+-- [ ] The actual browser download matches every record in the known complete readable set.
+-- [ ] Special characters, sorting, permissions, and 0/5000/5001 boundaries match the parent.
+-- [ ] Each result identifies the integration version and actual data baseline.
+-- [ ] Mark the overall outcome complete only after all required parent acceptance criteria pass.
++- [ ] Cross-page export contains all readable data matching the date range.
++- [ ] The export contains only data matching the category filter.
++- [ ] Each matching record appears exactly once.
++- [ ] Column order matches the contract.
++- [ ] Data sorting matches the contract.
++- [ ] Chinese notes match their original values after parsing.
++- [ ] Comma-containing notes match their original values after parsing.
++- [ ] Double-quote notes match their original values after parsing.
++- [ ] Newline notes match their original values after parsing.
++- [ ] 5000  records download completely.
++- [ ] 5001  records display a prompt to narrow the range.
++- [ ] 5001  records create no file.
++- [ ] No matches downloads a CSV with only the four-column header.
++- [ ] Unreadable data never appears in the output.
++- [ ] The results above come from an actual browser download.
++- [ ] Each result identifies the integration version.
++- [ ] Each result identifies the actual data baseline.
++
++Mark the parent complete only after all required acceptance criteria pass.
+ 
+ ## Next steps
+ 
+-1. Check the actual backend/frontend entry points and contract versions.
+-2. Connect src/app/export.ts, prepare multi-page data, and perform browser acceptance.
++1. Check the backend entry point.
++2. Check the frontend entry point.
++3. Check the contract version used by both.
++4. Connect src/app/export.ts.
++5. Prepare multi-page data.
++6. Perform browser acceptance.
+--- round1/parent-feature.md
++++ parent-feature.md
+@@ -3,29 +3,56 @@
+ ## Requirements
+ 
+ - Project: Pocket Reporting/proj-report.
+-- Export all matching expenses readable by the current user for the date range and category, including other pages.
+-- Synchronous download, at most 5000 records.
+-- Exceeding the limit prompts narrowing the range and creates no file.
+-- Columns in order: date, amount, category, notes.
++- Filter by date range.
++- Filter by category.
++- The export includes matching data from other pages.
++- Permissions: include only expenses readable by the current user.
++- Download mode: synchronous.
++- Record limit: 5000.
++- Limit handling
++  - Prompt narrowing the range.
++  - Do not create a file.
++- Column order: date → amount → category → notes.
+ - No matches downloads a header-only CSV.
+ - Source: requests.md C04.
+ 
+ ## Deliverables and sub-issues
+ 
+-- contract.md: shared complete-query, filter, sort, and error contract.
+-- backend.md: fetch all readable data and generate CSV according to the contract.
+-- frontend.md: filtered download and error-handling interface according to the contract.
+-- integration.md: browser download and comparison with actual data.
+-- Schedule: plan.md.
++- [contract.md](contract.md): shared export contract.
++- [backend.md](backend.md): CSV generation for the complete data set.
++- [frontend.md](frontend.md): filtered download interface.
++- [integration.md](integration.md): real download workflow integration.
++- [plan.md](plan.md): execution schedule.
+ 
+ ## Overall acceptance
+ 
+-- [ ] The exported set equals all readable data matching the date and category filters, each record exactly once, including other pages.
+-  1. Prepare a known set spanning multiple pages, dates, categories, and unreadable data.
+-  2. Select the date and category in the browser and download.
+-  3. Parse the file and check record count, each row’s fields, and contract sorting.
+-- [ ] Chinese, commas, double quotes, and newline notes match the original values after parsing.
+-- [ ] 5000  records download completely; 5001 records prompt narrowing the range and produce no file.
+-- [ ] No matches still downloads a CSV with only the four-column header.
++- [ ] Cross-page export contains all readable data matching the date range.
++- [ ] The export contains only data matching the category filter.
++- [ ] Each matching record appears exactly once.
++- [ ] Column order matches the contract.
++- [ ] Data sorting matches the contract.
++- [ ] Chinese notes match their original values after parsing.
++- [ ] Comma-containing notes match their original values after parsing.
++- [ ] Double-quote notes match their original values after parsing.
++- [ ] Newline notes match their original values after parsing.
++- [ ] 5000  records download completely.
++- [ ] 5001  records display a prompt to narrow the range.
++- [ ] 5001  records create no file.
++- [ ] No matches downloads a CSV with only the four-column header.
+ - [ ] Unreadable data never appears in the output.
+-- [ ] Integration results include tested version, browser, data baseline, and evidence entry point.
++- [ ] Acceptance records identify the tested version.
++- [ ] Acceptance records identify the browser.
++- [ ] Acceptance records identify the data baseline.
++- [ ] Each acceptance result has an evidence entry point.
++
++## Verification order
++
++1. Prepare a known multi-page data set.
++2. Add data outside the date range.
++3. Add data from other categories.
++4. Add unreadable data.
++5. Select filters in the browser.
++6. Download the file.
++7. Parse CSV.
++8. Check each acceptance result above.
++9. Save evidence.
+--- round1/plan.md
++++ plan.md
+@@ -1,13 +1,30 @@
+ # Execution order
+ 
+-1. Agent A completes contract.md first; the maintainer reviews the contract.
+-2. Once the contract is usable, A handles backend.md and B handles frontend.md.
+-3. The maintainer reviews one item at a time; the other pending item still counts toward WIP. Agents prioritize rework and do not start another item.
+-4. Once both implementations are usable, A alone maintains src/app/export.ts and completes integration.md.
+-5. Check outcomes against the overall acceptance in parent-feature.md.
++1. Agent A completes contract.md.
++2. The maintainer reviews the contract.
++3. Start implementation once the contract is usable.
++   - Agent A: backend.md.
++   - Agent B: frontend.md.
++4. The maintainer reviews one item at a time.
++5. Agents prioritize rework.
++6. Once both implementations are usable, A completes integration.md.
++7. Check outcomes against the overall acceptance in parent-feature.md.
+ 
+-- Each Agent executes one item at a time; the aggregate parent does not occupy another slot.
+-- Backend and frontend wait for the shared contract and have no artifact dependency on each other.
+-- Integration waits for both implementations.
+-- Assigning a sole writer prevents shared-entry conflicts; artifact dependencies follow actual inputs.
+-- This round is planning; the filenames above identify work. Actual Team, status IDs, and new issue IDs were not supplied.
++## Capacity and allocation
++
++- Each Agent executes one item at a time.
++- The aggregate parent does not occupy another execution slot.
++- Deliverables awaiting review still count toward WIP.
++- Do not open new work before review capacity is released.
++- Backend waits for the shared contract.
++- Frontend waits for the shared contract.
++- Backend and frontend have no artifact dependency on each other.
++- Integration waits for the backend artifact.
++- Integration waits for the frontend artifact.
++- A alone maintains src/app/export.ts.
++- Determine artifact dependencies from actual required inputs.
++- This round uses corresponding filenames as work identifiers.
++- Identifiers not provided
++  - Actual Team.
++  - Status ID.
++  - New issue IDs.

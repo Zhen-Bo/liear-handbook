@@ -1,0 +1,23 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "EXP-21.md",
+      "sha256": "e4d394cb0cd4d259e235b15ec5030cd3145e9f7a7af31fab524b8da6775d6dff",
+      "changed": true,
+      "checkboxCount": 5,
+      "localizedSha256": "6bf5ac607b91197188ebffc37e7896dc609e4791eb7ec8a3c3b34e6df0ca4ca6"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Issue body synchronized; status matches the effective requirements",
+      "passed": true
+    },
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

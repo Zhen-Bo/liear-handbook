@@ -1,0 +1,19 @@
+{
+  "draftOnly": true,
+  "ready": [
+    "investigation-issue.md"
+  ],
+  "parent": "parent-bug.md",
+  "later": [
+    {
+      "deliverable": "Fix and regression-test against the accepted diagnosis",
+      "blockedBy": "Traceable diagnostic conclusion",
+      "bodyStatus": "Draft after evidence is available"
+    },
+    {
+      "deliverable": "Verify the complete flow on the fixed version",
+      "blockedBy": "Testable fixed version",
+      "acceptance": "Overall acceptance in parent-bug.md"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "simulationOnly": true,
+  "source": "requests.md#C06",
+  "operations": [
+    {
+      "operation": "read_fixture",
+      "source": "requests.md#C06",
+      "result": "Read the authoritative data supplied for this case; source-fixture.md preserves its location"
+    },
+    {
+      "operation": "resolve_current_scope",
+      "source": "requests.md#C06 → latest body/comment/allocation/PAY-15/current file",
+      "result": "JSON replaces CSV; A has stopped, B is the sole writer; existing authorization permits completing the document and updating the issue"
+    },
+    {
+      "operation": "edit_document",
+      "target": "docs/export-spec.md",
+      "result": "Wrote JSON fields, sorting, and empty-data specification"
+    },
+    {
+      "operation": "verify_document",
+      "source": "docs/export-spec.md; verification.json",
+      "result": "Read back, compared with the contract, parsed examples, and checked sorting and output fields"
+    },
+    {
+      "operation": "reread_before_update",
+      "source": "requests.md#C06; workspace-before.json",
+      "result": "Recheck effective requirements and exclusive allocation before updating"
+    },
+    {
+      "operation": "planned_fields",
+      "target": "pay-16",
+      "fields": {
+        "statusId": "pay-done",
+        "bodyFile": "PAY-16.md"
+      },
+      "result": "Required documentation completion criteria checked; the environment requires no additional human review"
+    },
+    {
+      "operation": "update_local_simulation",
+      "target": "workspace.json",
+      "result": "Saved simulated PAY-16 body/status update"
+    },
+    {
+      "operation": "readback",
+      "source": "workspace.json",
+      "result": "Confirmed pay-done, user-ren, PAY-11 relation, and JSON body; PAY-11 still owns the parent’s overall implementation outcome"
+    }
+  ],
+  "mentionHandling": "No native mention tool contract or actual issue URLs were provided; documents use known identifiers, simulated relations preserve supplied IDs, and do not claim native mentions were created."
+}

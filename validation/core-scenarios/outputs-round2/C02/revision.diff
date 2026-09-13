@@ -1,0 +1,170 @@
+--- round1/environment.md
++++ environment.md
+@@ -1,27 +1,51 @@
+ # Ledger takeover state
+ 
+-Baseline: requests.md C02, 2026-09-13.
++Baseline: requests.md C02.
++Verified on: 2026-09-13.
+ 
+-- Workspace: Ledger/ws-ledger/Business.
+-- Team: Finance/team-finance/FIN/Asia/Taipei.
+-- Project: Ledger/proj-ledger, not archived.
+-  - Search page 1 contains only archived Ledger 2024/proj-archive.
+-  - Continue to page 2 using cursor ledger-next; hasNextPage false.
+-  - Old proj-ledger-legacy is no longer the current mapping.
+-- Owner: Mina/user-mina; B uses Mina’s connection and can read the Project and artifacts.
++- Workspace
++  - Name: Ledger.
++  - ID: ws-ledger.
++  - Plan: Business.
++- Team
++  - Name: Finance.
++  - ID: team-finance.
++  - Identifier: FIN.
++  - Time zone: Asia/Taipei.
++- Project
++  - Name: Ledger.
++  - ID: proj-ledger.
++  - Archived: false.
++- Search results
++  - Page 1: archived Ledger 2024/proj-archive.
++  - Page 1 next-page cursor: ledger-next.
++  - Page 2: Ledger/proj-ledger.
++  - Page 2 hasNextPage: false.
++- Owner: Mina/user-mina.
++- Session B
++  - Use Mina’s connection.
++  - Can read the Project.
++  - Can read artifacts.
+ - Default: fin-queue.
+-- Estimates: retain Fibonacci 1/2/3/5/8; original issue values are unavailable, so the draft does not supply values.
+-- Cycles: two weeks, currently cycle-24; the draft does not assume FIN-10 belongs to the Cycle.
+-- Priority: High for blocked expense entry; otherwise follow the existing order.
++- Estimates
++  - Retain Fibonacci 1/2/3/5/8.
++  - Original values for each issue were not provided.
++- Cycles
++  - Period: two weeks.
++  - Current: cycle-24.
++  - FIN-10 Cycle membership is unknown.
++- Priority
++  - Blocked expense entry: High.
++  - Others: follow the existing order.
+ - Labels
+   - Team Bug: label-fin-bug/team-finance.
+   - Workspace Bug: label-workspace-bug/workspace.
+-  - FIN-10 delivers documentation; no corresponding existing label was provided.
++  - No documentation label was provided for FIN-10.
+ - Automation
+   - PR merged → Checking.
+-  - Parent/sub-issue auto-close off.
+-  - Auto-archive: 180 days.
+-  - Auto-close off.
++  - Parent/sub-issue auto-close: off.
++  - Auto-archive: 180 days.
++  - Auto-close: off.
+ 
+ | Stage | Status | Category | ID |
+ | --- | --- | --- | --- |
+@@ -32,9 +56,27 @@
+ | Complete | Shipped | completed | fin-shipped |
+ | Stopped | Stopped | canceled | fin-stopped |
+ 
+-- Old policy treats Ready/old-ready as awaiting acceptance, conflicting with current category and ID; this round uses Checking for acceptance.
+-- The Project currently delivers the monthly-total fix before category filtering.
+-- Session A is working on FIN-9 and writes src/totals.ts.
+-- FIN-8 waits for FIN-9; Mina’s latest comment supersedes the old suggestion to start FIN-8 first.
+-- B’s first draft is FIN-10: no blockedBy or active executor; writes docs/import-date-contract.md, compatible with A’s write scope.
+-- docs/ledger-brief.md/fixture-ledger-02 provides only a readable location and version, with no full text in the fixture; conclusions use the current Project body and latest FIN-10 body.
++## Takeover decision
++
++- The current Project ID supersedes old proj-ledger-legacy.
++- The old Ready/old-ready mapping does not match the current status list.
++- This round uses Checking as the acceptance stage.
++- Project order: fix monthly totals first, then complete category filtering.
++- FIN-9
++  - Executor: session A, still active.
++  - Writes: src/totals.ts.
++- FIN-8
++  - Wait for FIN-9 artifacts.
++  - Mina’s latest comment supersedes the old ”FIN-8 first” suggestion.
++- B’s first draft: FIN-10.
++  - No blockedBy.
++  - No active executor.
++  - Write target: docs/import-date-contract.md.
++  - Compatible with A’s write scope.
++- docs/ledger-brief.md
++  - Version: fixture-ledger-02.
++  - The fixture provides a readable location but not the full text.
++- Basis for current conclusions
++  - Latest Project body.
++  - Latest FIN-10 body.
++  - Mina’s latest Project comment.
+--- round1/FIN-10.md
++++ FIN-10.md
+@@ -9,33 +9,50 @@
+ - Current state: Ready/fin-ready.
+ - Outcome owner: Mina/user-mina.
+ - Suggested successor: session B.
+-- Source: latest FIN-10 body and Mina’s Project comment in requests.md C02.
++- Source
++  - Latest FIN-10 body in Requests.md C02.
++  - Mina’s latest Project comment.
+ 
+ ## Adopted conclusions
+ 
+ - Use the user-selected time zone.
+-- Express date inputs in ISO format; the contract must specify the accepted forms.
++- Express date inputs in ISO format.
+ - Provide the completed document to monthly-report integration.
+ 
+ ## Deliverables
+ 
+-- docs/import-date-contract.md.
+-  - Explicit rules for accepting ISO date-only and timestamps with offsets.
+-  - How to obtain and apply the selected time zone, in order.
+-  - Determine missing-time-zone and invalid-ISO handling.
+-  - Input/expected-result examples across months and different browser time zones.
+-- Current data does not define the accepted ISO subset or missing-time-zone handling; inspect existing import and user time-zone settings contracts first, keeping ambiguities as open decisions.
++- docs/import-date-contract.md
++  - Acceptance rules for ISO date-only.
++  - Acceptance rules for timestamps with offsets.
++  - How to obtain the selected time zone.
++  - Time-zone application order.
++  - Missing-time-zone handling.
++  - Invalid-ISO handling.
++  - Cross-month examples.
++  - Comparison examples across different browser time zones.
++- To confirm
++  - Currently accepted ISO subset.
++  - Missing-time-zone handling.
++- Confirmation method: inspect existing import and user time-zone settings contracts.
++- Keep ambiguous content as open decisions.
+ 
+ ## Acceptance
+ 
+-- [ ] Each accepted ISO form includes input, selected time zone, and an explicit result.
++- [ ] Each accepted ISO form has a determinable result.
+ - [ ] Cross-month examples determine month assignment.
+ - [ ] The same input and selected time zone yield the same month assignment across different browser time zones.
+-- [ ] Invalid-input and missing-time-zone handling are directly usable by integration.
+-- [ ] The monthly-report integration successor can locate the document and applicable version.
++- [ ] Invalid-input handling is usable by integration.
++- [ ] Missing-time-zone handling is usable by integration.
++- [ ] The monthly-report integration successor can locate the document.
++- [ ] The document identifies the applicable version.
+ 
+ ## Next steps
+ 
+-1. Open docs/ledger-brief.md/fixture-ledger-02 and inspect existing import and time-zone contracts.
+-2. Document accepted ISO forms and cross-month cases in the draft.
+-3. Provide the completed document to monthly-report integration; schedule FIN-8 once FIN-9 artifacts are usable.
++1. Open docs/ledger-brief.md/fixture-ledger-02.
++2. Inspect the existing import contract.
++3. Inspect the user time-zone contract.
++4. Document accepted ISO forms.
++5. Add cross-month cases.
++6. Hand the completed document to monthly-report integration.
++
++Schedule FIN-8 once the FIN-9 artifact is usable.

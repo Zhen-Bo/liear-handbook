@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title description">
+  <title id="title">Linear Handbooks</title>
+  <desc id="description">Practical guides for Linear. Four turning pages form a monochrome fan, with a diagonally oriented geometric fountain-pen nib on the front page. Parallel diagonal strokes fade into the upper-right corner.</desc>
+  <defs>
+    <clipPath id="frame"><rect width="1200" height="320" rx="24"/></clipPath>
+    <radialGradient id="engraving-fade" gradientUnits="userSpaceOnUse" cx="1220" cy="-20" r="320">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="0.75" stop-color="#FFFFFF" stop-opacity="0.13"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="engraving-mask" maskUnits="userSpaceOnUse" x="850" y="0" width="350" height="320" style="mask-type:alpha">
+      <rect x="850" width="350" height="320" fill="url(#engraving-fade)"/>
+    </mask>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="320" fill="#0A0A0A"/>
+    <g aria-hidden="true" mask="url(#engraving-mask)" fill="none" stroke="#D5D5D5" stroke-width="4">
+      <path d="M856 -30L1206 320"/>
+      <path d="M874 -30L1224 320"/>
+      <path d="M892 -30L1242 320"/>
+      <path d="M910 -30L1260 320"/>
+      <path d="M928 -30L1278 320"/>
+      <path d="M946 -30L1296 320"/>
+      <path d="M964 -30L1314 320"/>
+      <path d="M982 -30L1332 320"/>
+      <path d="M1000 -30L1350 320"/>
+      <path d="M1018 -30L1368 320"/>
+      <path d="M1036 -30L1386 320"/>
+      <path d="M1054 -30L1404 320"/>
+      <path d="M1072 -30L1422 320"/>
+      <path d="M1090 -30L1440 320"/>
+      <path d="M1108 -30L1458 320"/>
+      <path d="M1126 -30L1476 320"/>
+      <path d="M1144 -30L1494 320"/>
+      <path d="M1162 -30L1512 320"/>
+      <path d="M1180 -30L1530 320"/>
+      <path d="M1198 -30L1548 320"/>
+      <path d="M1216 -30L1566 320"/>
+      <path d="M1234 -30L1584 320"/>
+    </g>
+    <g transform="translate(101 57)" stroke-linejoin="round">
+      <path d="M8 143L67 8L143 39L84 174Z" fill="#414141"/>
+      <path d="M15 139L70 17L131 42" fill="none" stroke="#5A5A5A" stroke-width="1"/>
+      <path d="M24 153L73 17L153 46L104 182Z" fill="#747474"/>
+      <path d="M31 149L77 25L143 49" fill="none" stroke="#8C8C8C" stroke-width="1"/>
+      <path d="M42 165L80 29L165 53L127 189Z" fill="#A9A9A9"/>
+      <path d="M49 161L84 37L154 57" fill="none" stroke="#C4C4C4" stroke-width="1"/>
+      <path d="M69 181Q66 180 67 177L91 46Q92 43 95 44L181 60L157 195Q156 198 153 197Z" fill="#EEEEEE"/>
+      <path d="M162 57L181 60L177 80Z" fill="#BDBDBD"/>
+      <path d="M162 57L177 80" stroke="#FFFFFF" stroke-width="1"/>
+      <g transform="translate(124 121) rotate(45) translate(-29 -30)" fill="#0A0A0A">
+        <path d="M14 -8H44V-2H14Z"/>
+        <path fill-rule="evenodd" d="M14 4H44L57 31L29 78L1 31Z M27 70V37A7 7 0 1 1 31 37V70Z"/>
+      </g>
+      <path d="M84 195L161 209L185 80" fill="none" stroke="#505050" stroke-width="1.5"/>
+      <path d="M101 204L165 216L182 123" fill="none" stroke="#292929" stroke-width="1"/>
+    </g>
+    <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+      <text x="326" y="180" fill="#F4F4F4" font-size="76" font-weight="700" letter-spacing="-2.3">Linear Handbooks</text>
+      <text x="331" y="230" fill="#A0A0A0" font-size="18" font-weight="500" letter-spacing="5.5">PRACTICAL GUIDES FOR LINEAR</text>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="24" fill="none" stroke="#252525"/>
+</svg>

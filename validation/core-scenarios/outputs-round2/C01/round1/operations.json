@@ -1,0 +1,86 @@
+{
+  "simulationOnly": true,
+  "source": "requests.md#C01",
+  "operations": [
+    {
+      "operation": "read_fixture",
+      "source": "requests.md#C01",
+      "result": "Read the authoritative data supplied for this case; source-fixture.md preserves its location"
+    },
+    {
+      "operation": "plan_fields",
+      "source": "environment.md; project-brief.md; PKT-1.md–PKT-3.md",
+      "fields": {
+        "simulation": true,
+        "id_allocation": "sim-* IDs are allocated by the local simulator; PKT-* identifiers are simulated sequential allocations after an empty issue list.",
+        "project": {
+          "id": "sim-pocket-v1",
+          "name": "Personal expense tracker v1",
+          "teamIds": [
+            "team-pocket"
+          ],
+          "leadId": "user-owner",
+          "description": "# Personal expense tracker v1\n\n## Goal\n\nAllow individuals to add expense amounts and categories, view this month’s total, and retain data after refresh.\nRequirement basis: requests.md C01.\n\n## Adopted scope\n\n- Persist expenses in localStorage within one browser.\n- Amounts are positive integer TWD.\n- Categories: Food, Transport, Other.\n- Version 1 provides expense addition and the monthly total.\n- Working baseline: pocket-web/fixture-base-01, Vite + TypeScript, Vitest.\n- Engineering conventions for this round: record time when adding; determine the current month from browser local year/month; inject the clock to verify cross-month behavior. These are adjustable implementation choices.\n\n## Success criteria\n\n- [ ] After adding TWD 85 Food and TWD 100 Transport, the monthly total is TWD 185.\n  1. Use isolated localStorage and a fixed current-month clock.\n  2. Add two expenses through the interface.\n  3. Check categories and amounts, then refresh.\n  4. Confirm both records remain and the total is still TWD 185.\n- [ ] 0, negative, fractional, and blank amounts do not add an expense; the interface displays corrective guidance.\n- [ ] Previous-month expenses are excluded; empty data produces a monthly total of 0.\n- [ ] Display the failure result when storage fails; do not report a successful addition.\n\n## Responsibilities and entry points\n\n- Project lead, requirement decisions, and outcome acceptance: Owner/user-owner.\n- Simulated Project: sim-pocket-v1, Team team-pocket.\n- Initial work\n  - PKT-1: data contract, localStorage persistence, and monthly total; session A.\n  - PKT-2: expense entry and monthly total interface; session B, waiting for a usable PKT-1 contract.\n  - PKT-3: connect the real persistence flow and perform acceptance; session A, waiting for PKT-1 and PKT-2 artifacts.\n- Next step: A checks the repository state for PKT-1, delivers a readable data contract and verified data functions.\n"
+        },
+        "issues": [
+          {
+            "id": "sim-pkt-1",
+            "identifier": "PKT-1",
+            "teamId": "team-pocket",
+            "projectId": "sim-pocket-v1",
+            "assigneeId": "user-owner",
+            "statusId": "st-todo",
+            "priority": "No priority",
+            "labels": [],
+            "estimate": null,
+            "body": "# Deliver expense persistence and monthly-total data functions\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session A.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Input: Project brief, pocket-web/fixture-base-01.\n- Exclusive write scope: src/expenses/, corresponding Vitest checks, docs/expense-contract.md.\n- Define expense identity, amount, category, creation time, storage key/version, and error results.\n- Deliver add, reload, and monthly-total functions with complete call examples.\n- Use an injectable clock; determine the current month from the browser’s local year and month.\n\n## Acceptance\n\n- [ ] 85  TWD for Food and TWD 100 for Transport can be saved and reread with matching amounts and categories.\n- [ ] Nonpositive or noninteger amounts are not written; write failures return an error the interface can display.\n- [ ] Monthly total is 185; previous-month data excluded; empty data is 0.\n- [ ] The contract includes inputs, outputs, errors, and call examples that B can integrate directly.\n- [ ] Relevant Vitest checks pass; save the version and execution results.\n\n## Next steps\n\n1. Read the empty Vite repository and existing test configuration.\n2. Define the complete contract and finish the data functions and verification.\n",
+            "blockedBy": []
+          },
+          {
+            "id": "sim-pkt-2",
+            "identifier": "PKT-2",
+            "teamId": "team-pocket",
+            "projectId": "sim-pocket-v1",
+            "assigneeId": "user-owner",
+            "statusId": "st-backlog",
+            "priority": "No priority",
+            "labels": [],
+            "estimate": null,
+            "body": "# Provide expense entry and monthly-total interface\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session B.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Required inputs: PKT-1’s docs/expense-contract.md and callable data functions; check versions at completion.\n- Exclusive write scope: src/ui/expenses/ and corresponding interface checks.\n- Amount field, Food/Transport/Other category choices, save action, and monthly total.\n- Verify the interface with a contract-compatible adapter; PKT-3 maintains the integration entry point.\n\n## Acceptance\n\n- [ ] Successful addition displays the latest monthly total.\n- [ ] Invalid amounts receive understandable, actionable guidance and do not submit an addition.\n- [ ] Display an error on save failure and allow retrying after correction.\n- [ ] Empty data displays 0; keyboard operation supports fields and saving.\n- [ ] Save interface verification results and the export entry point for integration.\n\n## Next steps\n\n1. Confirm PKT-1 artifacts are readable and match the calling contract.\n2. Build the interface and check behavior against success, empty-data, and failure responses.\n",
+            "blockedBy": [
+              "sim-pkt-1"
+            ]
+          },
+          {
+            "id": "sim-pkt-3",
+            "identifier": "PKT-3",
+            "teamId": "team-pocket",
+            "projectId": "sim-pocket-v1",
+            "assigneeId": "user-owner",
+            "statusId": "st-backlog",
+            "priority": "No priority",
+            "labels": [],
+            "estimate": null,
+            "body": "# Complete expense workflow integration and verify persistence after refresh\n\n- Outcome owner: Owner/user-owner.\n- Planned executor: session A.\n- Project: sim-pocket-v1.\n\n## Inputs and scope\n\n- Input: usable versions of PKT-1 data functions and the PKT-2 interface.\n- Exclusive write scope: actual Vite startup entry point, required integration changes, verification/pocket-v1.md.\n- Connect real localStorage and the interface, fixing integration gaps.\n- Complete browser operations and data comparison against the Project brief’s success criteria.\n\n## Acceptance\n\n- [ ] Add TWD 85 Food and TWD 100 Transport in the actual browser; after refresh both remain and the total is 185.\n- [ ] Previous-month exclusion, empty data, invalid amounts, and storage failure match the Project brief.\n- [ ] Record the tested version, browser, isolated data, and individual results.\n- [ ] Owner can assess the overall Project outcome from the evidence entry point.\n\n## Next steps\n\n1. Read both artifacts and check versions and interfaces.\n2. After connecting the startup entry point, execute the full flow and save acceptance records.\n",
+            "blockedBy": [
+              "sim-pkt-1",
+              "sim-pkt-2"
+            ]
+          }
+        ]
+      },
+      "result": "Use existing fixture IDs; allocate new object IDs in the local simulation"
+    },
+    {
+      "operation": "create_local_simulation",
+      "target": "workspace.json",
+      "result": "Wrote one Project and three issues"
+    },
+    {
+      "operation": "readback",
+      "source": "workspace.json",
+      "result": "Read back and checked Project, Team, Assignee, status, and blockedBy; first item Todo, others Backlog"
+    }
+  ],
+  "mentionHandling": "No native mention tool contract or actual issue URLs were provided; documents use known identifiers, simulated relations preserve supplied IDs, and do not claim native mentions were created."
+}

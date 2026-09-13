@@ -1,0 +1,41 @@
+{
+  "simulationOnly": true,
+  "source": "requests.md#C05",
+  "operations": [
+    {
+      "operation": "read_fixture",
+      "source": "requests.md#C05",
+      "result": "Read the authoritative data supplied for this case; source-fixture.md preserves its location"
+    },
+    {
+      "operation": "compare_reported_ids",
+      "source": "requests.md#C05 → latest acceptance; verification.json",
+      "result": "Calculate 160 missing records from the provided summary; do not describe the fixture summary as rereading the original actual.csv file"
+    },
+    {
+      "operation": "reread_before_update",
+      "source": "workspace-before.json",
+      "result": "Read the local simulated prior state; Done came from PR automation, while required acceptance failed"
+    },
+    {
+      "operation": "planned_fields",
+      "target": "EXP-21",
+      "fields": {
+        "statusId": "exp-implement",
+        "bodyFile": "EXP-21.md"
+      },
+      "result": "Repair the original promise gap; reopen the original issue for rework"
+    },
+    {
+      "operation": "update_local_simulation",
+      "target": "workspace.json",
+      "result": "Saved simulated body and status updates"
+    },
+    {
+      "operation": "readback",
+      "source": "workspace.json",
+      "result": "Read back and confirmed exp-implement, complete body, and EXP-20 still Implementing; parent automation off"
+    }
+  ],
+  "mentionHandling": "No native mention tool contract or actual issue URLs were provided; documents use known identifiers, simulated relations preserve supplied IDs, and do not claim native mentions were created."
+}

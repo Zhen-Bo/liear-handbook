@@ -1,0 +1,26 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "investigation-issue.md",
+      "sha256": "c746c0d9b3eb6920c10f134f6ba3e04940d4e7f6cb672e6f3846f64900f37ea0",
+      "changed": true,
+      "checkboxCount": 6,
+      "localizedSha256": "76e696774bb95c2240169b1f9cf17423cba6156bbaca25d6fa6560a1dad6a6e7"
+    },
+    {
+      "file": "parent-bug.md",
+      "sha256": "0796983001861a708c573767c141b1f85b67cb83444a734a13de6769dc10d0a8",
+      "changed": true,
+      "checkboxCount": 4,
+      "localizedSha256": "e6a4ec3869e0aa17f91bc8249216c65b931ada6d6bffd9584bb7b2bf2af6dcf0"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

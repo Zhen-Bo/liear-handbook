@@ -1,0 +1,126 @@
+{
+  "expectedSha256": "54c6729f57c1e5dd5bfb83881f128a82e4628a19d27f31b845bbcd0f03b66dd4",
+  "recordedAt": "2026-09-13T02:38:09.9354155+08:00",
+  "skillFiles": [
+    {
+      "sha256": "78fa644f02299859d16ce3e96f84fcda5a36ee1191dabf9a9103a35bf332e27c",
+      "path": "skills/linear-handbook/assets/templates/bug.md"
+    },
+    {
+      "sha256": "60c6896e74871baa0cf189cc3520ea61ea1ccb884e1295b07c0cd11413b94c61",
+      "path": "skills/linear-handbook/assets/templates/feature.md"
+    },
+    {
+      "sha256": "14b24c24e221f91d557c90b8f675cbc2a3eb23afe7f3f6db84033caf54fdd2de",
+      "path": "skills/linear-handbook/assets/templates/handoff.md"
+    },
+    {
+      "sha256": "20a10affd125a7ded0f0695db01789a5a41af6f2732ad229e8c6e7c3c08b0151",
+      "path": "skills/linear-handbook/assets/templates/migration.md"
+    },
+    {
+      "sha256": "9afbdf897590fd1734f91bb0d3cc1dbe6446e16bc966811d7f133618f7e5e482",
+      "path": "skills/linear-handbook/assets/templates/progress-comment.md"
+    },
+    {
+      "sha256": "9c1dc27c938602508592b9b679f443e0c2baf6648b10786a36e7618c70fb8d35",
+      "path": "skills/linear-handbook/assets/templates/project-brief.md"
+    },
+    {
+      "sha256": "354c531afa6dffd9408d825d4974511c35928f2350b4b172b30b09717b471fbc",
+      "path": "skills/linear-handbook/assets/templates/project-update.md"
+    },
+    {
+      "sha256": "9e8a63675d277a82ea85a4b78cfb2f3d85297a023c1d63d99975215729ee839b",
+      "path": "skills/linear-handbook/assets/templates/refactor.md"
+    },
+    {
+      "sha256": "5f1de4465fb65ae2d0d629f9058bf1525879525e94add85febcd84b52c4d343d",
+      "path": "skills/linear-handbook/assets/templates/research.md"
+    },
+    {
+      "sha256": "fe84ca713ec80133f189515c222cfa1ac226fca1f978c1ce58c5f269325a8267",
+      "path": "skills/linear-handbook/references/agent-boundaries.md"
+    },
+    {
+      "sha256": "9f1fea98048385c88b75e4e916baf1ac31d36bb55d1098504f6c98e158015746",
+      "path": "skills/linear-handbook/references/agent-tool-capabilities.md"
+    },
+    {
+      "sha256": "db181561887e96abe35a819737bcc85bc8d5bb477ce4cdab2fdb7c75879beff9",
+      "path": "skills/linear-handbook/references/decomposition-edge-cases.md"
+    },
+    {
+      "sha256": "299872e1223012a8f123cc3b7d174ed3e38836b68335f16d537f87bbfabf1f90",
+      "path": "skills/linear-handbook/references/documentation.md"
+    },
+    {
+      "sha256": "de4149f9aabddee561727c4037e3349172b7244463e67f451541c9cd2ee356f4",
+      "path": "skills/linear-handbook/references/extension-model.md"
+    },
+    {
+      "sha256": "624d296dee1944d5547ed989c8c13741b02fcf626c6d0ad433c91ebc7935c9d7",
+      "path": "skills/linear-handbook/references/feature-coverage.md"
+    },
+    {
+      "sha256": "ed5e36aee85d9cd472de48d1a4c35882eaf43f65e406a407f589a8188115982f",
+      "path": "skills/linear-handbook/references/feature-decomposition.md"
+    },
+    {
+      "sha256": "7e0da52c76441245d48758e1a9951a48eddf5ac8d5d39140541a6bc95277b172",
+      "path": "skills/linear-handbook/references/issue-decomposition.md"
+    },
+    {
+      "sha256": "b35b723a365bb113f237fa240b42137868b442af58f1845c215c6d069e8f7bf1",
+      "path": "skills/linear-handbook/references/issue-lifecycle.md"
+    },
+    {
+      "sha256": "35dae8ea3985d0935abd2c5dc491f5d02d739d08a3bb0cc4befc6f90632942eb",
+      "path": "skills/linear-handbook/references/issue-types.md"
+    },
+    {
+      "sha256": "3d5f68f445252ee1a7c58c642490b1df516362acd7fad859c011e99800d8d969",
+      "path": "skills/linear-handbook/references/maintenance.md"
+    },
+    {
+      "sha256": "aa8d0035e898c3eb832960a30de47efc96a4f700b20ecffe8fb74cee766f1dc2",
+      "path": "skills/linear-handbook/references/multi-agent-coordination.md"
+    },
+    {
+      "sha256": "2ce18316b0e812d61bcea67853b084ae2eb37b28af94d4b1b578eae9cb8ed467",
+      "path": "skills/linear-handbook/references/object-model.md"
+    },
+    {
+      "sha256": "1963736dc74f7614c2afe827500cbb0dd9742a36a436c651b83db66cc00433be",
+      "path": "skills/linear-handbook/references/planning-and-dependencies.md"
+    },
+    {
+      "sha256": "ed862d6ef85f70df956bedf8ff6aec0fb22ef15077c4ea6ce8f57343c5911161",
+      "path": "skills/linear-handbook/references/policy.md"
+    },
+    {
+      "sha256": "cd5f17ec3b21f2d8dd1e3ab6dd88dee65b6f226da58d7627ad54328de3445e0d",
+      "path": "skills/linear-handbook/references/project-bootstrap.md"
+    },
+    {
+      "sha256": "9adf3964808a62aac1fdc02714cd1e598df0cb4d5a92a3e0d74519fa0852c6a3",
+      "path": "skills/linear-handbook/references/project-planning.md"
+    },
+    {
+      "sha256": "3a3f71d138c48204309943da3561bd69f16e3e6e87d8e444faf1501daa191dac",
+      "path": "skills/linear-handbook/references/tool-recovery.md"
+    },
+    {
+      "sha256": "380e4506decbf4c496c2db4e6396931b48c492eb0017c2fff3790e42a2b02eff",
+      "path": "skills/linear-handbook/references/workspace-setup.md"
+    },
+    {
+      "sha256": "8ec0bb58ee229ea68775ab2d60b4063435692831c71d39717813b54e18402b43",
+      "path": "skills/linear-handbook/references/writing.md"
+    },
+    {
+      "sha256": "60e45e8f87e3f50042e03970dd3deb65b2bd50efac7aedb4e953d3cf268e5801",
+      "path": "skills/linear-handbook/SKILL.md"
+    }
+  ]
+}

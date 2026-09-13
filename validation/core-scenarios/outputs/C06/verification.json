@@ -1,0 +1,33 @@
+{
+  "source": "docs/export-spec.md",
+  "sha256": "ada68fc371e2730745efe4f554768328a4e41b6e264b95a25d5460a12e788c45",
+  "basis": "Current body, latest comment, and embedded PAY-15 data-contract-v2 contents in requests.md C06",
+  "checks": [
+    {
+      "name": "Compare date YYYY-MM-DD, integer amount, and string category with the source",
+      "passed": true
+    },
+    {
+      "name": "Parse JSON examples and compare expected date/id sorting results",
+      "passed": true
+    },
+    {
+      "name": "The three output fields exclude the sorting id",
+      "passed": true
+    },
+    {
+      "name": "Empty input and output [] explicitly stated",
+      "passed": true
+    },
+    {
+      "name": "Title and format changed to JSON; old header rule removed",
+      "passed": true
+    }
+  ],
+  "scope": "Document content and example checks",
+  "localization": {
+    "language": "en",
+    "sha256": "46064f9704f08f6b41f8396b7128cf507263dcbd917ac37686da8509e445477a",
+    "scope": "Integrity of the English document; original sha256 and checks above describe the historical Chinese evaluation."
+  }
+}

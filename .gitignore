@@ -1,0 +1,26 @@
+# Repository content; local delivery archives and private records stay local.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/AGENTS.md
+!/LICENSE
+!/NOTICE
+!/CONTRIBUTING.md
+!/.github/
+!/skills/
+!/assets/
+!/docs/
+!/research/
+!/design/
+!/validation/
+/assets/*
+!/assets/readme-hero.svg
+!/assets/made-for-astra.svg
+/docs/*
+!/docs/maintenance.md
+!/docs/sources-and-attribution.md
+/validation/private/
+/validation/generated/
+__pycache__/
+*.pyc

@@ -1,0 +1,54 @@
+{
+  "round": 2,
+  "files": [
+    {
+      "file": "backend.md",
+      "sha256": "11947c069488f9dd67c8a928e677df2891f2fc2ef462e13eb4c69b52edc4560c",
+      "changed": true,
+      "checkboxCount": 15,
+      "localizedSha256": "3d81b1b10e5d939d9e991f7e60198868ff45d77b13a53442e6725b6637c3292b"
+    },
+    {
+      "file": "contract.md",
+      "sha256": "805f606ea3602eaa8141c35be6794086ca32b8b2e6984b2288a3ff6a2d41457f",
+      "changed": true,
+      "checkboxCount": 16,
+      "localizedSha256": "659e49310273f6de6bcf5300f4ba9cd4e0b501dd55289604018d6384d50e64df"
+    },
+    {
+      "file": "frontend.md",
+      "sha256": "722069233a24375e8bc2c5c6f56b40fc25f9a73bb9a0b6e937cbeccc0ff30a60",
+      "changed": true,
+      "checkboxCount": 11,
+      "localizedSha256": "0043ab66924a4c5c4aba05eddc2c8d5969ff9d9d03be018b679dfc575201926a"
+    },
+    {
+      "file": "integration.md",
+      "sha256": "7b20d99e051df55e759adb8f3fd51cc6376af327c635525530e9961a2b7afda3",
+      "changed": true,
+      "checkboxCount": 17,
+      "localizedSha256": "ec04726453560660ced1fdf66cd5f5d4afb3a3e063db2362bf5cc0550013af83"
+    },
+    {
+      "file": "parent-feature.md",
+      "sha256": "965d85bea482d111d29d68a098364b076280c9462a30f3816bb85ff06cac09b3",
+      "changed": true,
+      "checkboxCount": 18,
+      "localizedSha256": "0dd7351c2b2e0e5982e517416264185492144b4d4e8955affa93c658c0c55242"
+    },
+    {
+      "file": "plan.md",
+      "sha256": "3140b56d185d6fc7641e4b1c73f966d5196357d20219d23261b772394f31dd8e",
+      "changed": true,
+      "checkboxCount": 0,
+      "localizedSha256": "e0ecbbae1125d617a64d7b385829b01637253ebd329e17cf300d3201b2c2abe2"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Documents read back individually; unchanged snapshots preserved in round1/",
+      "passed": true
+    }
+  ],
+  "localizationScope": "localizedSha256 identifies the English file; original hashes and check results preserve the historical Chinese evaluation."
+}

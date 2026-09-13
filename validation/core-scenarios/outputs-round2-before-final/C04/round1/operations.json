@@ -1,0 +1,34 @@
+{
+  "simulationOnly": true,
+  "source": "requests.md#C04",
+  "operations": [
+    {
+      "operation": "read_fixture",
+      "source": "requests.md#C04",
+      "result": "Read the authoritative data supplied for this case; source-fixture.md preserves its location"
+    },
+    {
+      "operation": "interpret",
+      "source": "requests.md#C04",
+      "result": "Define the shared contract first, then parallel frontend/backend work; preserve full browser acceptance and capacity for one review at a time."
+    },
+    {
+      "operation": "save_drafts",
+      "targets": [
+        "parent-feature.md",
+        "contract.md",
+        "backend.md",
+        "frontend.md",
+        "integration.md",
+        "plan.md"
+      ],
+      "result": "Saved and read back usable drafts"
+    },
+    {
+      "operation": "planned_remote_fields",
+      "fields": null,
+      "result": "This case authorizes preparation/drafts only; statuses and relations in deliverables describe current state or plans, with no simulated remote writes"
+    }
+  ],
+  "mentionHandling": "No native mention tool contract or actual issue URLs were provided; documents use known identifiers, simulated relations preserve supplied IDs, and do not claim native mentions were created."
+}

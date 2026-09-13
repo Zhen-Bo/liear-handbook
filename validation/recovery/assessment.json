@@ -1,0 +1,9 @@
+{
+  "creates": 0,
+  "decisions": 6,
+  "expectedUnchanged": true,
+  "issueUpdates": 3,
+  "skillFiles": 30,
+  "skillFilesChanged": 0,
+  "requests": 30
+}

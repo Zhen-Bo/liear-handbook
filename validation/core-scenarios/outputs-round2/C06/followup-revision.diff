@@ -1,0 +1,50 @@
+--- before/C06/PAY-16.md
++++ after/C06/PAY-16.md
+@@ -1,9 +1,9 @@
+ Deliver the JSON export specification.
+ 
+ - Fields
+-  - Date.
+-  - Amount.
+-  - Category.
++  - date.
++  - amount.
++  - category.
+ - Amount is an integer.
+ - Sort data by date ascending.
+ - Sort by id ascending within a date.
+@@ -21,9 +21,9 @@
+ 
+ ## Verification results
+ 
+-- [x] The date definition matches data-contract-v2.
+-- [x] The amount definition matches the integer contract.
+-- [x] The category definition matches the string contract.
++- [x] The date definition matches data-contract-v2.
++- [x] The amount definition matches the integer contract.
++- [x] The category definition matches the string contract.
+ - [x] Sorting example JSON parses successfully.
+ - [x] The example sorts date ascending.
+ - [x] The example sorts id ascending within the same date.
+--- before/C06/docs/export-spec.md
++++ after/C06/docs/export-spec.md
+@@ -19,7 +19,7 @@
+ | Field | JSON type | Definition |
+ | --- | --- | --- |
+ | date | string | Date in YYYY-MM-DD format from data-contract-v2. |
+-| amount | number | Integer amount from data-contract-v2; the current contract adds no positive/negative restriction. |
++| amount | number | Integer amount from data-contract-v2. |
+ | category | string | Category string; preserve the source value. |
+ 
+ - Output `[]` when there is no data.
+--- before/hash-sync/PAY-16.md
++++ after/hash-sync/PAY-16.md
+@@ -30,7 +30,7 @@
+ - [x] Empty-data output is explicitly [].
+ 
+ - Evidence: [verification.json](verification.json).
+-- Tested document SHA-256: 8490f7c99aed0eccef65b7f0ffc01300d3ba3a83d96b40b480707d19d6633399
++- Tested document SHA-256: bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c
+ - Hash baseline: actual saved file bytes.
+ - Local simulated artifact links are relative to this directory.
+ 

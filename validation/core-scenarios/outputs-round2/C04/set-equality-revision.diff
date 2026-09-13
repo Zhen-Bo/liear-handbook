@@ -1,0 +1,33 @@
+--- before/parent-feature.md
++++ after/parent-feature.md
+@@ -26,7 +26,7 @@
+ 
+ ## Overall acceptance
+ 
+-- [ ] Cross-page export contains all readable data matching both date range and category filters.
++- [ ] The cross-page exported set equals the complete filtered set matching date range, category, and current-user read permission.
+ - [ ] The export contains only data matching the category filter.
+ - [ ] Each matching record appears exactly once.
+ - [ ] Column order matches the contract.
+--- before/backend.md
++++ after/backend.md
+@@ -20,7 +20,7 @@
+ 
+ ## Acceptance
+ 
+-- [ ] Cross-page export contains all readable data matching both date range and category filters.
++- [ ] The cross-page exported set equals the complete filtered set matching date range, category, and current-user read permission.
+ - [ ] The export contains only data matching the category filter.
+ - [ ] Each matching record appears exactly once.
+ - [ ] Column order matches the contract.
+--- before/integration.md
++++ after/integration.md
+@@ -17,7 +17,7 @@
+ 
+ ## Acceptance
+ 
+-- [ ] Cross-page export contains all readable data matching both date range and category filters.
++- [ ] The cross-page exported set equals the complete filtered set matching date range, category, and current-user read permission.
+ - [ ] The export contains only data matching the category filter.
+ - [ ] Each matching record appears exactly once.
+ - [ ] Column order matches the contract.

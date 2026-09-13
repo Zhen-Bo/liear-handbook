@@ -1,0 +1,15 @@
+{
+  "issue": {
+    "identifier": "EXP-21",
+    "statusId": "exp-done",
+    "body": "Export all filtered data; required acceptance: all 240 records exactly once, correct Chinese and newline fields, readable data only."
+  },
+  "parent": {
+    "identifier": "EXP-20",
+    "status": "Implementing"
+  },
+  "automation": {
+    "closingMerge": "Done",
+    "parentSubIssue": false
+  }
+}

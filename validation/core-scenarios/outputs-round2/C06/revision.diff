@@ -1,0 +1,91 @@
+--- round1/docs/export-spec.md
++++ docs/export-spec.md
+@@ -4,7 +4,10 @@
+ 
+ - For PAY-11’s JSON export implementation.
+ - Authoritative document: docs/export-spec.md.
+-- Requirement basis: PAY-16 current body and latest user comment, fully replacing the old CSV specification.
++- Requirement basis
++  - PAY-16 current body.
++  - Latest user comment.
++- Current approach: JSON specification fully replaces the old CSV specification.
+ - Data basis: PAY-15’s [data-contract-v2](fixture://pay-15/data-contract-v2).
+ - Check date: 2026-09-13.
+ 
+@@ -20,7 +23,9 @@
+ | category | string | Category string; preserve the source value. |
+ 
+ - Output `[]` when there is no data.
+-- `id` is the source’s unique string, used for stable sorting and excluded from the three output fields.
++- Source `id` is a unique string.
++- `id` is used for stable sorting.
++- Output fields exclude `id`.
+ 
+ ## Sorting
+ 
+@@ -61,6 +66,10 @@
+ ## Content checks
+ 
+ - Compare field definitions with data-contract-v2.
+-- The sorting example covers both cross-date ordering and same-date ID ordering.
+-- Example output parses as JSON and objects match the three-field definition.
+-- Check record: ../verification.json, including this document’s SHA-256 and individual results.
++- The sorting example covers cross-date ordering.
++- The sorting example covers same-date ID ordering.
++- Example output parses as JSON.
++- Example objects match the three-field definition.
++- Check record: [verification.json](../verification.json).
++  - SHA-256 of this document’s actual bytes.
++  - Check each result.
+--- round1/PAY-16.md
++++ PAY-16.md
+@@ -1,27 +1,41 @@
+ Deliver the JSON export specification.
+ 
+-- Fields: date, amount, category.
++- Fields
++  - Date.
++  - Amount.
++  - Category.
+ - Amount is an integer.
+-- Sort data by date ascending, then id ascending within a date.
++- Sort data by date ascending.
++- Sort by id ascending within a date.
+ - Artifact: [docs/export-spec.md](docs/export-spec.md).
+ - Prerequisite source: PAY-15/fixture://pay-15/data-contract-v2.
+ - For PAY-11’s JSON export implementation.
+ 
+ ## Completed items
+ 
+-1. Completely replace with a JSON specification defining three fields and the source contract.
+-2. Add cross-date and same-date id sorting examples and empty-array output.
++1. Completely replace with a JSON specification.
++2. Define the three output fields.
++3. Add a cross-date sorting example.
++4. Add a same-date id sorting example.
++5. Specify empty-array output.
+ 
+ ## Verification results
+ 
+-- [x] Field definitions match current requirements and data-contract-v2.
+-- [x] Sorting example JSON parses; output follows ascending date, then ascending id within a date.
++- [x] The date definition matches data-contract-v2.
++- [x] The amount definition matches the integer contract.
++- [x] The category definition matches the string contract.
++- [x] Sorting example JSON parses successfully.
++- [x] The example sorts date ascending.
++- [x] The example sorts id ascending within the same date.
+ - [x] Empty-data output is explicitly [].
+ 
+ - Evidence: [verification.json](verification.json).
+-- Tested document SHA-256: ada68fc371e2730745efe4f554768328a4e41b6e264b95a25d5460a12e788c45
++- Tested document SHA-256: 8490f7c99aed0eccef65b7f0ffc01300d3ba3a83d96b40b480707d19d6633399
++- Hash baseline: actual saved file bytes.
+ - Local simulated artifact links are relative to this directory.
+ 
+ ## Continuation entry point
+ 
+-The PAY-11 implementation successor reads the fields and sorting examples in docs/export-spec.md first, then implements JSON export accordingly.
++1. The PAY-11 implementation successor reads docs/export-spec.md.
++2. Implement output according to field definitions.
++3. Check results against the sorting example.

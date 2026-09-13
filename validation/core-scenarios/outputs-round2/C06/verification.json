@@ -1,0 +1,55 @@
+{
+  "source": "docs/export-spec.md",
+  "sha256": "bf91d2e0c015f558964e67f7be06f42a0aa6a0ca6012fd73ce542b3be044857c",
+  "hashBasis": "hashlib.sha256(Path.read_bytes())",
+  "basis": "Current body, latest comment, and embedded PAY-15 data-contract-v2 contents in requests.md C06",
+  "checks": [
+    {
+      "name": "The YYYY-MM-DD date definition matches the prerequisite contract",
+      "passed": true
+    },
+    {
+      "name": "The integer amount definition matches the prerequisite contract",
+      "passed": true
+    },
+    {
+      "name": "The string category definition matches the prerequisite contract",
+      "passed": true
+    },
+    {
+      "name": "JSON examples parse successfully",
+      "passed": true
+    },
+    {
+      "name": "Example dates ascending",
+      "passed": true
+    },
+    {
+      "name": "Example IDs ascending within the same date",
+      "passed": true
+    },
+    {
+      "name": "Output fields are date, amount, category",
+      "passed": true
+    },
+    {
+      "name": "Empty-data output [] explicitly stated",
+      "passed": true
+    },
+    {
+      "name": "Document byte hash matches the declared hash",
+      "passed": true
+    }
+  ],
+  "scope": "Document content and specification-example checks",
+  "correction": {
+    "round1DeclaredSha256": "ada68fc371e2730745efe4f554768328a4e41b6e264b95a25d5460a12e788c45",
+    "round1ActualBytesSha256": "00577bf313c24ff0e5406a0b563bb3adcc25c90f439e48386919411f090c31be",
+    "finding": "Round 1 hashed LF text re-encoded after text readback, differing from the CRLF file bytes written on Windows. Round 2 reads the saved file bytes directly."
+  },
+  "localization": {
+    "language": "en",
+    "sha256": "890e9f3d03162c5dd7716e0d8959b0f039bac0f23aedefcecd239c99d0bbf325",
+    "scope": "Integrity of the English document; original sha256 and checks above describe the historical Chinese evaluation."
+  }
+}
